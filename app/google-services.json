@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "794252482605",
+    "firebase_url": "https://soloeast-chernobyltours.firebaseio.com",
+    "project_id": "soloeast-chernobyltours",
+    "storage_bucket": "soloeast-chernobyltours.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794252482605:android:f597a811e2834b37",
+        "android_client_info": {
+          "package_name": "com.tourkiev.chernobyltours"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "794252482605-nhkfvkdi8tit97ddo7esvpnktm8ltuoh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUEa7MQlwFtXq3GE-v5X8DLzxb8Z_vVIE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

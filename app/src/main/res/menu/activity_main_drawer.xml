@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/ic_menu_map"
+            android:title="Map" />
+        <item
+            android:id="@+id/nav_book"
+            android:icon="@drawable/ic_menu_book"
+            android:title="Book a tour" />
+        <item
+            android:id="@+id/nav_language"
+            android:icon="@drawable/ic_menu_language"
+            android:title="Language" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_menu_about"
+            android:title="About" />
+        <item
+            android:id="@+id/nav_log_out"
+            android:icon="@drawable/ic_menu_log_out"
+            android:title="Log out" />
+    </group>
+
+</menu>
