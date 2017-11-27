@@ -15,13 +15,21 @@
       },
       "oauth_client": [
         {
+          "client_id": "794252482605-heai2uef2defhqm79th12ibqt6o8qbam.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tourkiev.chernobyltours",
+            "certificate_hash": "a5c6511228dad4422b6ac7fbf5f64b92cabbe207"
+          }
+        },
+        {
           "client_id": "794252482605-nhkfvkdi8tit97ddo7esvpnktm8ltuoh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDUEa7MQlwFtXq3GE-v5X8DLzxb8Z_vVIE"
+          "current_key": "AIzaSyBsK7szReR687gQr2iN_XuQAB_LqFaZr3w"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "794252482605-nhkfvkdi8tit97ddo7esvpnktm8ltuoh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

@@ -12,17 +12,25 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
+import com.squareup.picasso.Picasso;
 import com.tourkiev.chernobyltours.R;
 import com.tourkiev.chernobyltours.fragments.AboutUsFragment;
 import com.tourkiev.chernobyltours.fragments.BookATourFragment;
 import com.tourkiev.chernobyltours.fragments.MapFragment;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 import static com.tourkiev.chernobyltours.Constants.CHECK_IF_IS_AUTH_PASSED;
+import static com.tourkiev.chernobyltours.Constants.PREFS_PROFILE_FIRST_NAME;
+import static com.tourkiev.chernobyltours.Constants.PREFS_PROFILE_IMAGE_URL;
 import static com.tourkiev.chernobyltours.Constants.TOURKIEV_URL_BOOK_TOUR;
 import static com.tourkiev.chernobyltours.Constants.TOURKIEV_URL_MAIN;
 
@@ -34,27 +42,49 @@ public class MainActivity extends AppCompatActivity
     MapFragment mapFragment;
     AboutUsFragment aboutUsFragment;
     BookATourFragment bookATourFragment;
+    CircleImageView profileImageView;
+    TextView profileTextName;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
 
         // prefs initialization
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         editor = prefs.edit();
+
+        // get prefs for loading
+        String profileImageUrl = prefs.getString(PREFS_PROFILE_IMAGE_URL, "");
+        Log.d("URL", profileImageUrl);
+        String profileName = prefs.getString(PREFS_PROFILE_FIRST_NAME, "");
+        Log.d("Name", profileName);
+
+
+        View headerLayout = navigationView.getHeaderView(0);// я ебу нахуй оно, если я мог просто его импортировать же....просто работает и х с ним
+
+        // finding our elements
+        profileImageView = headerLayout.findViewById(R.id.profile_image);
+        profileTextName = headerLayout.findViewById(R.id.profile_name);
+
+        // load image into circleImageView
+        Picasso.with(getApplicationContext())
+                .load(profileImageUrl)
+                .into(profileImageView);
+        profileTextName.setText("Hello" + ", " + profileName + " " + " " + "!");
 
         if (savedInstanceState == null) {
             MapFragment mapFragment = new MapFragment();
@@ -103,14 +133,13 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         // empty fragment, just for a while
         switch (id) {
-            case R.id.nav_book :
-            if (bookATourFragment == null)
-            {
-                bookATourFragment = new BookATourFragment();
-                bookATourFragment.init(TOURKIEV_URL_BOOK_TOUR);
-            }
-            replaceWithFragment(bookATourFragment);
-            break;
+            case R.id.nav_book:
+                if (bookATourFragment == null) {
+                    bookATourFragment = new BookATourFragment();
+                    bookATourFragment.init(TOURKIEV_URL_BOOK_TOUR);
+                }
+                replaceWithFragment(bookATourFragment);
+                break;
             case R.id.nav_map:
                 if (mapFragment == null) {
                     mapFragment = new MapFragment();

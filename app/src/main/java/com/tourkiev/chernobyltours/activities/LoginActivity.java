@@ -42,6 +42,8 @@ import static com.tourkiev.chernobyltours.Constants.EXTRAS_PROFILE_IMAGE_URL;
 import static com.tourkiev.chernobyltours.Constants.EXTRAS_PROFILE_USER_ID;
 import static com.tourkiev.chernobyltours.Constants.FB_TAG;
 import static com.tourkiev.chernobyltours.Constants.GOOGLE_TAG;
+import static com.tourkiev.chernobyltours.Constants.PREFS_PROFILE_FIRST_NAME;
+import static com.tourkiev.chernobyltours.Constants.PREFS_PROFILE_IMAGE_URL;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -185,6 +187,7 @@ public class LoginActivity extends AppCompatActivity {
             String firstName = user.getDisplayName();
             String userId = user.getUid();
             String profileImageUrl = user.getPhotoUrl().toString();
+
             intent.putExtra(EXTRAS_PROFILE_USER_ID, userId);
             intent.putExtra(EXTRAS_PROFILE_FIRST_NAME, firstName);
             intent.putExtra(EXTRAS_PROFILE_IMAGE_URL, profileImageUrl);
@@ -196,10 +199,13 @@ public class LoginActivity extends AppCompatActivity {
             // change value of our variable
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             SharedPreferences.Editor editor = prefs.edit();
-
+            // values to store in prefs
             editor.putBoolean(CHECK_IF_IS_AUTH_PASSED, true);
-            editor.apply();
+            // user profile data
+            editor.putString(PREFS_PROFILE_FIRST_NAME, firstName);
+            editor.putString(PREFS_PROFILE_IMAGE_URL, profileImageUrl);
 
+            editor.apply();
 
             startActivity(intent);
             finish();
