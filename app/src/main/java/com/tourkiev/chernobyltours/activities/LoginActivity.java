@@ -1,4 +1,4 @@
-package com.tourkiev.chernobyltours;
+package com.tourkiev.chernobyltours.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -34,6 +34,7 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.tourkiev.chernobyltours.R;
 
 import static com.tourkiev.chernobyltours.Constants.CHECK_IF_IS_AUTH_PASSED;
 import static com.tourkiev.chernobyltours.Constants.EXTRAS_PROFILE_FIRST_NAME;

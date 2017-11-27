@@ -8,5 +8,15 @@
 
     <string name="facebook_app_id">299931483831093</string>
     <string name="fb_login_protocol_scheme">fb299931483831093</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyAv6U6eH2WbidLdc81XZNKYc1LOKR1JqN0
+    </string>
+
+
     <string name="first_time_here"><a href="https://www.tourkiev.com/">First time here?</a></string>
+    <string name="loading">Loading</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
