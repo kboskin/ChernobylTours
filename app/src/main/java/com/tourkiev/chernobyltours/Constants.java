@@ -22,4 +22,6 @@ public class Constants {
     public static final String TOURKIEV_URL_MAIN = "https://www.tourkiev.com/";
     public static final String TOURKIEV_URL_BOOK_TOUR = "https://www.tourkiev.com/contacts/";
 
+
+
 }
