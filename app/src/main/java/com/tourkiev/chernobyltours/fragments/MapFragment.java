@@ -1,11 +1,13 @@
 package com.tourkiev.chernobyltours.fragments;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +19,16 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.tourkiev.chernobyltours.Constants;
 import com.tourkiev.chernobyltours.ModelMarker;
 import com.tourkiev.chernobyltours.R;
+import com.tourkiev.chernobyltours.activities.DisplayPointActivity;
 import com.tourkiev.chernobyltours.helpers.GPSTracker;
 
 import java.util.ArrayList;
+
+import static com.tourkiev.chernobyltours.Constants.EXTRAS_DESCRIPTION;
+import static com.tourkiev.chernobyltours.Constants.EXTRAS_TITLE;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback,
         ActivityCompat.OnRequestPermissionsResultCallback, GoogleMap.OnMarkerClickListener {
@@ -97,13 +104,23 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        return false;
+
+        Intent intent = new Intent(getContext(), DisplayPointActivity.class);
+        intent.putExtra(EXTRAS_TITLE, marker.getTitle());
+        Log.d("markert", marker.getTitle());
+        intent.putExtra(EXTRAS_DESCRIPTION, marker.getSnippet());
+        Log.d("markers", marker.getSnippet());
+        intent.putExtra(Constants.EXTRAS_IMAGE, marker.getTitle());
+        startActivity(intent);
+        return true;
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
         setUpMap(mMap);
+
     }
 
     private void setUpMap(GoogleMap googleMap) {
@@ -159,13 +176,18 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         //googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title("You are here!"));
         googleMap.setOnMyLocationChangeListener(myLocationChangeListener);
 
+
         // adding markers
         for (ModelMarker modelMarker : setGeoInMap()) {
             googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(modelMarker.getLatitude(), modelMarker.getLongitude()))
-                    .title(modelMarker.getTitle()));
+                    .title(modelMarker.getTitle())
+                    .snippet(modelMarker.getDescription()));
 
         }
+
+        //marker click listener
+        googleMap.setOnMarkerClickListener(this);
     }
 
 
