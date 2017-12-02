@@ -10,6 +10,7 @@ import com.tourkiev.chernobyltours.R;
 
 import static com.tourkiev.chernobyltours.Constants.EXTRAS_DESCRIPTION;
 import static com.tourkiev.chernobyltours.Constants.EXTRAS_TITLE;
+import static com.tourkiev.chernobyltours.fragments.MapFragment.hashMap;
 
 /**
  * Created by hp on 001 01.12.2017.
@@ -25,8 +26,6 @@ public class DisplayPointActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_point);
 
-        imageContainer = findViewById(R.id.content_image);
-
         intent = getIntent();// get intents
 
         // setting title
@@ -36,6 +35,10 @@ public class DisplayPointActivity extends AppCompatActivity {
         documentView = findViewById(R.id.content_text); // Support plain text
         documentView.setText(intent.getStringExtra(EXTRAS_DESCRIPTION)); // Set to `true` to enable justification
 
+        // setting image into imageView
+        imageContainer = findViewById(R.id.content_image);
+
+        imageContainer.setImageBitmap(hashMap.get(intent.getStringExtra(EXTRAS_TITLE)).getBitmap());
 
     }
 }
