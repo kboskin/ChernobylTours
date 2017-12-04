@@ -48,6 +48,8 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     // justified textview
     compile 'com.github.bluejamesbond:textjustify-android:2.1.6'
+    // orbit menu for audio player
+    compile 'com.github.rjsvieira:floatingMenu:1.2.0'
 
 
 }

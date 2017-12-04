@@ -5,4 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorWhite">#fff</color>
     <color name="colorGray">#898989</color>
+
+    <color name="colorHint">#c7c7c7</color>
+    <color name="colorBackground">#151B29</color>
+    <color name="colorYellow">#F5FA55</color>
 </resources>

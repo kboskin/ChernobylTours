@@ -7,16 +7,17 @@
     <ImageView
         android:id="@+id/content_image"
         android:layout_width="match_parent"
-        android:scaleType="fitXY"
+        android:layout_height="220dp"
+        android:layout_alignParentTop="true"
         android:adjustViewBounds="true"
-        android:layout_height="230dp" />
+        android:scaleType="fitXY" />
 
 
     <com.bluejamesbond.text.DocumentView xmlns:ext="http://schemas.android.com/apk/res-auto"
         android:id="@+id/content_text"
         android:layout_width="match_parent"
-        android:layout_height="310dp"
-        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
         ext:documentView_insetPaddingLeft="20dp"
         ext:documentView_insetPaddingRight="20dp"
         ext:documentView_reverse="false"
@@ -27,5 +28,49 @@
         ext:documentView_textStyle="bold"
         ext:documentView_textSubPixel="true"
         ext:documentView_wordSpacingMultiplier="1.0" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="160dp">
+
+        <ProgressBar
+            android:id="@+id/progressBarCV"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/drawable_circle_dark_blue"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="100"
+            android:progressDrawable="@drawable/drawable_circle_yellow"
+            android:rotation="-90" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/stop" />
+
+        <TextView
+            android:id="@+id/textViewTimeCV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/circleImageView"
+            android:layout_centerHorizontal="true"
+            android:text="Start"
+            android:textColor="@color/colorYellow"
+            android:textSize="10sp" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
