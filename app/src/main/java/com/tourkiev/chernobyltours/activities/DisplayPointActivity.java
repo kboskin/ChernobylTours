@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import com.bluejamesbond.text.DocumentView;
 import com.tourkiev.chernobyltours.R;
 
-import static com.tourkiev.chernobyltours.Constants.EXTRAS_DESCRIPTION;
 import static com.tourkiev.chernobyltours.Constants.EXTRAS_TITLE;
 import static com.tourkiev.chernobyltours.fragments.MapFragment.hashMap;
 
@@ -28,17 +27,19 @@ public class DisplayPointActivity extends AppCompatActivity {
 
         intent = getIntent();// get intents
 
+        // unique id for all of the markers
+        String uniqueTitle = intent.getStringExtra(EXTRAS_TITLE);
+
         // setting title
-        this.setTitle(intent.getStringExtra(EXTRAS_TITLE));
+        this.setTitle(uniqueTitle);
 
         // setting text to the textView
         documentView = findViewById(R.id.content_text); // Support plain text
-        documentView.setText(intent.getStringExtra(EXTRAS_DESCRIPTION)); // Set to `true` to enable justification
+        documentView.setText(hashMap.get(uniqueTitle).getDescription()); // Set to `true` to enable justification
 
         // setting image into imageView
         imageContainer = findViewById(R.id.content_image);
-
-        imageContainer.setImageBitmap(hashMap.get(intent.getStringExtra(EXTRAS_TITLE)).getBitmap());
+        imageContainer.setImageBitmap(hashMap.get(uniqueTitle).getBitmap());
 
     }
 }

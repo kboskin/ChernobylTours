@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,6 +19,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -26,7 +29,9 @@ import com.tourkiev.chernobyltours.activities.DisplayPointActivity;
 import com.tourkiev.chernobyltours.helpers.GPSTracker;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Objects;
 
 import static com.tourkiev.chernobyltours.Constants.EXTRAS_DESCRIPTION;
 import static com.tourkiev.chernobyltours.Constants.EXTRAS_TITLE;
@@ -37,19 +42,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     GoogleMap mMap;
     Location currentLocation;
     GPSTracker gpsTracker;
-    ArrayList<ModelMarker> modelMarkerArrayList;
+    ArrayList<ModelMarker> modelMarkerArrayList;  // arrayList of gmap markers
+    ArrayList<MarkerOptions> googleMapArrayList; // arrayList of models
     public static HashMap<String, ModelMarker> hashMap;
-
-    private GoogleMap.OnMyLocationChangeListener myLocationChangeListener = new GoogleMap.OnMyLocationChangeListener() {
-        @Override
-        public void onMyLocationChange(Location location) {
-            LatLng loc = new LatLng(location.getLatitude(), location.getLongitude());
-            if (mMap != null) {
-                // camera animation
-                mMap.animateCamera(CameraUpdateFactory.newLatLng(loc));
-            }
-        }
-    };
 
     public MapFragment() {
         // Required empty public constructor
@@ -61,6 +56,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         View view = inflater.inflate(R.layout.fragment_map, container, false);
         gpsTracker = new GPSTracker(getContext());
         modelMarkerArrayList = new ArrayList<>();
+        googleMapArrayList = new ArrayList<>();
         hashMap = new HashMap<String, ModelMarker>();
 
         ((SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map)).getMapAsync(this);
@@ -71,12 +67,37 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
 
         // first points check point
-        modelMarkerArrayList.add(new ModelMarker(50.45148595, 30.52208215, getString(R.string.tour_starting_point), getString(R.string.tour_starting_point_description), convertToBitmap(R.drawable.data)));// Tour starting point
-        modelMarkerArrayList.add(new ModelMarker(50.45046123, 30.5239436, getString(R.string.kreschatic_street), getString(R.string.kreshatik_street_description), convertToBitmap(R.drawable.data1)));// Kreschatik street
-        modelMarkerArrayList.add(new ModelMarker(50.45846028, 30.52656412, getString(R.string.podol), getString(R.string.podol_description), convertToBitmap(R.drawable.data2)));// Podol
-        modelMarkerArrayList.add(new ModelMarker(50.60230732, 30.45289993, getString(R.string.novi_petrivtsi), getString(R.string.novi_petrivtsi_description), convertToBitmap(R.drawable.data3)));// Novi Petrivtsy
-        modelMarkerArrayList.add(new ModelMarker(50.77636424, 30.3228879, getString(R.string.dymer), getString(R.string.dymer_description), convertToBitmap(R.drawable.data4)));// Dymer
-        modelMarkerArrayList.add(new ModelMarker(50.80640933, 30.15102267, getString(R.string.katyuzhanka), getString(R.string.katyachanka_description), convertToBitmap(R.drawable.data5)));// Katyuzhanka
+        modelMarkerArrayList.add(new ModelMarker(50.45148595,
+                30.52208215, getString(R.string.tour_starting_point),
+                getString(R.string.tour_starting_point_description),
+                convertToBitmap(R.drawable.data),
+                50));// Tour starting point
+        modelMarkerArrayList.add(new ModelMarker(50.45046123,
+                30.5239436,
+                getString(R.string.kreschatic_street),
+                getString(R.string.kreshatik_street_description),
+                convertToBitmap(R.drawable.data1),
+                75));// Kreschatik street
+        modelMarkerArrayList.add(new ModelMarker(50.45846028,
+                30.52656412,
+                getString(R.string.podol),
+                getString(R.string.podol_description),
+                convertToBitmap(R.drawable.data2),
+                100));// Podol
+        modelMarkerArrayList.add(new ModelMarker(50.60230732,
+                30.45289993,
+                getString(R.string.novi_petrivtsi), getString(R.string.novi_petrivtsi_description),
+                convertToBitmap(R.drawable.data3),
+                100));// Novi Petrivtsy
+        modelMarkerArrayList.add(new ModelMarker(50.77636424,
+                30.3228879,
+                getString(R.string.dymer),
+                getString(R.string.dymer_description),
+                convertToBitmap(R.drawable.data4), 200));// Dymer
+        modelMarkerArrayList.add(new ModelMarker(50.80640933, 30.15102267,
+                getString(R.string.katyuzhanka),
+                getString(R.string.katyachanka_description),
+                convertToBitmap(R.drawable.data5)));// Katyuzhanka
         modelMarkerArrayList.add(new ModelMarker(50.91928863, 29.90091741, getString(R.string.ivankiv), getString(R.string.ivankiv_description), convertToBitmap(R.drawable.data6)));// Ivankiv
         modelMarkerArrayList.add(new ModelMarker(51.11254837, 30.12176514, getString(R.string.dityatki_check_point), getString(R.string.dityatki_check_point_description), convertToBitmap(R.drawable.data7)));// Dityatki Check Point
         modelMarkerArrayList.add(new ModelMarker(51.12256969, 30.12187243, getString(R.string.thirty_k_zone), getString(R.string.thirty_k_zone_description), convertToBitmap(R.drawable.data8)));// 30k zone
@@ -138,6 +159,25 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
+
+        // adding markers
+        for (ModelMarker modelMarker : setGeoInMap(modelMarkerArrayList)) {
+            // create marker
+            MarkerOptions marker = new MarkerOptions()
+                    .position(new LatLng(modelMarker.getLatitude(), modelMarker.getLongitude()))
+                    .title(modelMarker.getTitle());
+
+            // add a maker
+            googleMapArrayList.add(marker);
+
+            // draw a radius
+            drawCircle(marker.getPosition(), googleMap, modelMarker.getRadius());
+
+            hashMap.put(marker.getTitle(), modelMarker); // link each marker with it's model
+            googleMap.addMarker(marker);
+
+        }
+
         googleMap.setMyLocationEnabled(true);
 
 
@@ -177,32 +217,132 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         // Zoom in the Google Map
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(17));
         //googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title("You are here!"));
-        googleMap.setOnMyLocationChangeListener(myLocationChangeListener);
+        googleMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
+            @Override
+            public void onMyLocationChange(Location location) {
+                LatLng loc = new LatLng(location.getLatitude(), location.getLongitude());
+                if (mMap != null) {
+                    // camera animation to current position
+                    //mMap.animateCamera(CameraUpdateFactory.newLatLng(loc));
 
+                    // returns nearest marker and shows snackbar
+                    getNearestMarker(googleMapArrayList, location);
 
-        // adding markers
-        for (ModelMarker modelMarker : setGeoInMap(modelMarkerArrayList)) {
-            // create marker
-            MarkerOptions marker = new MarkerOptions()
-                    .position(new LatLng(modelMarker.getLatitude(), modelMarker.getLongitude()))
-                    .title(modelMarker.getTitle())
-                    .snippet(modelMarker.getDescription());
+                }
+            }
+        });
 
-
-            hashMap.put(marker.getTitle(), modelMarker); // link each marker with it's model
-            googleMap.addMarker(marker);
-
-        }
 
         //marker click listener
         googleMap.setOnMarkerClickListener(this);
     }
 
-    private Bitmap convertToBitmap(int resId)
-    {
+    private Bitmap convertToBitmap(int resId) {
         return BitmapFactory.decodeResource(getResources(),
                 resId);
     }
 
 
+    // draw a circle radius
+    private void drawCircle(LatLng point, GoogleMap googleMap, double radius) {
+
+        // Instantiating CircleOptions to draw a circle around the marker
+        CircleOptions circleOptions = new CircleOptions();
+
+        // Specifying the center of the circle
+        circleOptions.center(point);
+
+        // Radius of the circle
+        circleOptions.radius(radius);
+
+        // Border color of the circle
+        circleOptions.strokeColor(Color.BLACK);
+
+        // Fill color of the circle
+        circleOptions.fillColor(0x30ff0000);
+
+        // Border width of the circle
+        circleOptions.strokeWidth(2);
+
+        // Adding the circle to the GoogleMap
+        googleMap.addCircle(circleOptions);
+
+    }
+
+    private void scanIfInRadius(Marker mMarker, CircleOptions mCircle, float distance[]) {
+        Location.distanceBetween(mMarker.getPosition().latitude,
+                mMarker.getPosition().longitude, mCircle.getCenter().latitude,
+                mCircle.getCenter().longitude, distance);
+
+        if (distance[0] > mCircle.getRadius()) {
+            //Do what you need
+
+        }
+    }
+
+    private double distFrom(float lat1, float lng1, float lat2, float lng2) {
+        double earthRadius = 3958.75;
+        double dLat = Math.toRadians(lat2 - lat1);
+        double dLng = Math.toRadians(lng2 - lng1);
+        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) *
+                        Math.sin(dLng / 2) * Math.sin(dLng / 2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        double dist = earthRadius * c;
+
+        int meterConversion = 1609;
+
+        return dist * meterConversion;
+    }
+
+    private void getNearestMarker(ArrayList<MarkerOptions> gMarkers, Location currentLocation) {
+
+
+        HashMap<MarkerOptions, Float> hm = new HashMap<>();
+        ArrayList<Float> distancesByFloat = new ArrayList<>();
+
+
+        for (MarkerOptions markerOptions : gMarkers) {
+
+            // arrayList of latitudes
+            // temporary variable
+            Location temp = new Location(markerOptions.getTitle());
+            temp.setLatitude(markerOptions.getPosition().latitude);
+            temp.setLongitude(markerOptions.getPosition().longitude);
+
+
+            // hm by title and current distance to marker
+            hm.put(markerOptions, currentLocation.distanceTo(temp));
+            // arrayList of distances
+            distancesByFloat.add(currentLocation.distanceTo(temp));
+            // Log.d("Dist" + " " + markerOptions.getTitle(), markerOptions.getTitle()/*String.valueOf(currentLocation.distanceTo(temp))*/);
+        }
+
+        // sorting arrayList to get a float
+        Collections.sort(distancesByFloat);
+
+        MarkerOptions markerOptions = null;
+        for (HashMap.Entry<MarkerOptions, Float> hashMap : hm.entrySet()) {
+
+            if (Objects.equals(hashMap.getValue(), distancesByFloat.get(0))) {
+
+                markerOptions = hashMap.getKey();
+            }
+        }
+        // returning the nearest title
+        //createSnackBar(markerOptions, mMap);
+    }
+
+    private void createSnackBar(final MarkerOptions markerOptions, final GoogleMap mMap) {
+        Snackbar snackbar = Snackbar
+                .make(getView(), "Nearest point is : " + markerOptions.getTitle(), Snackbar.LENGTH_INDEFINITE)
+                .setAction(">", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mMap.animateCamera(CameraUpdateFactory.newLatLng(markerOptions.getPosition()));
+                    }
+                });
+
+        snackbar.show();
+    }
 }

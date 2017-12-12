@@ -11,12 +11,20 @@ public class ModelMarker {
     private String title;
     private Bitmap bitmap;
     private String description;
-
-
+    private double radius;
 
 
     public Bitmap getBitmap() {
         return bitmap;
+    }
+
+    public ModelMarker(double latitude, double longitude, String title, String description, Bitmap bitmap, double radius) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.title = title;
+        this.description = description;
+        this.bitmap = bitmap;
+        this.radius = radius;
     }
 
     public ModelMarker(double latitude, double longitude, String title, String description, Bitmap bitmap) {
@@ -25,7 +33,6 @@ public class ModelMarker {
         this.title = title;
         this.description = description;
         this.bitmap = bitmap;
-
     }
 
     public double getLatitude() {
@@ -51,4 +58,13 @@ public class ModelMarker {
     public String getDescription() {
         return description;
     }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
 }
