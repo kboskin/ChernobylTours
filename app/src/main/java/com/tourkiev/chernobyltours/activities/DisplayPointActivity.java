@@ -39,7 +39,7 @@ public class DisplayPointActivity extends AppCompatActivity {
 
         // setting image into imageView
         imageContainer = findViewById(R.id.content_image);
-        imageContainer.setImageBitmap(hashMap.get(uniqueTitle).getBitmap());
+        imageContainer.setImageBitmap(hashMap.get(uniqueTitle).getBitmapImage());
 
     }
 }

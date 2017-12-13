@@ -9,30 +9,39 @@ import android.graphics.Bitmap;
 public class ModelMarker {
     private double latitude, longitude;
     private String title;
-    private Bitmap bitmap;
+    private Bitmap bitmapImage;
     private String description;
     private double radius;
 
-
-    public Bitmap getBitmap() {
-        return bitmap;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public ModelMarker(double latitude, double longitude, String title, String description, Bitmap bitmap, double radius) {
+
+    private Bitmap bitmapMarker;
+
+
+    public Bitmap getBitmapImage() {
+        return bitmapImage;
+    }
+
+    public ModelMarker(double latitude, double longitude, String title, String description, Bitmap bitmapImage, double radius, Bitmap bitmapMarker) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.title = title;
         this.description = description;
-        this.bitmap = bitmap;
+        this.bitmapImage = bitmapImage;
         this.radius = radius;
+        this.bitmapMarker = bitmapMarker;
     }
 
-    public ModelMarker(double latitude, double longitude, String title, String description, Bitmap bitmap) {
+    public ModelMarker(double latitude, double longitude, String title, String description, Bitmap bitmapImage, Bitmap bitmapMarker) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.title = title;
         this.description = description;
-        this.bitmap = bitmap;
+        this.bitmapImage = bitmapImage;
+        this.bitmapMarker = bitmapMarker;
     }
 
     public double getLatitude() {
@@ -65,6 +74,24 @@ public class ModelMarker {
 
     public void setRadius(double radius) {
         this.radius = radius;
+    }
+
+
+    public void setBitmapImage(Bitmap bitmapImage) {
+        this.bitmapImage = bitmapImage;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Bitmap getBitmapMarker() {
+
+        return  Bitmap.createScaledBitmap(bitmapMarker, 90, 122, false);
+    }
+
+    public void setBitmapMarker(Bitmap bitmapMarker) {
+        this.bitmapMarker = bitmapMarker;
     }
 
 }
