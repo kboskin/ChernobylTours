@@ -6,14 +6,19 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.location.Location;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -35,15 +40,19 @@ import java.util.Objects;
 
 import static com.tourkiev.chernobyltours.Constants.EXTRAS_DESCRIPTION;
 import static com.tourkiev.chernobyltours.Constants.EXTRAS_TITLE;
+import static com.tourkiev.chernobyltours.R.string.nearest_point;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback,
-        ActivityCompat.OnRequestPermissionsResultCallback, GoogleMap.OnMarkerClickListener {
+        ActivityCompat.OnRequestPermissionsResultCallback, GoogleMap.OnMarkerClickListener, View.OnClickListener {
 
     GoogleMap mMap;
     Location currentLocation;
     GPSTracker gpsTracker;
     ArrayList<ModelMarker> modelMarkerArrayList;  // arrayList of gmap markers
     ArrayList<MarkerOptions> googleMapArrayList; // arrayList of models
+    TextView nearestMarkerTextView;
+    MarkerOptions markerOptions;
+    RelativeLayout bottomLayout;
     public static HashMap<String, ModelMarker> hashMap;
 
     public MapFragment() {
@@ -58,8 +67,15 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         modelMarkerArrayList = new ArrayList<>();
         googleMapArrayList = new ArrayList<>();
         hashMap = new HashMap<String, ModelMarker>();
+        // rel layout with whole elements
+        bottomLayout = view.findViewById(R.id.nearest_point_layout);
+        nearestMarkerTextView = view.findViewById(R.id.nearest_point);
+        // animate camera by click to specific marker
+        bottomLayout.setOnClickListener(this);
 
         ((SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map)).getMapAsync(this);
+
+
         return view;
     }
 
@@ -192,15 +208,15 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         // Get the name of the best provider
         //String provider = locationManager.getBestProvider(criteria, true);
 
-        // default value
-        currentLocation = gpsTracker.getLocation();
+        //set map type
+        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
         // Get Current Location
         //Location myLocation = locationManager.getLastKnownLocation(provider);
         //googleMap.setOnMyLocationChangeListener(this);
 
-        //set map type
-        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        // default value
+        currentLocation = gpsTracker.getLocation();
 
         // Get latitude of the current location
         double latitude = currentLocation.getLatitude();
@@ -223,10 +239,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 LatLng loc = new LatLng(location.getLatitude(), location.getLongitude());
                 if (mMap != null) {
                     // camera animation to current position
-                    //mMap.animateCamera(CameraUpdateFactory.newLatLng(loc));
+                    mMap.animateCamera(CameraUpdateFactory.newLatLng(loc));
 
-                    // returns nearest marker and shows snackbar
-                    getNearestMarker(googleMapArrayList, location);
+                    // returns nearest marker
+                    markerOptions = getNearestMarker(googleMapArrayList, location);
+                    setTextBottomTextView(markerOptions);
+
+                    // set text to the textView
+
 
                 }
             }
@@ -280,22 +300,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         }
     }
 
-    private double distFrom(float lat1, float lng1, float lat2, float lng2) {
-        double earthRadius = 3958.75;
-        double dLat = Math.toRadians(lat2 - lat1);
-        double dLng = Math.toRadians(lng2 - lng1);
-        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) *
-                        Math.sin(dLng / 2) * Math.sin(dLng / 2);
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        double dist = earthRadius * c;
-
-        int meterConversion = 1609;
-
-        return dist * meterConversion;
-    }
-
-    private void getNearestMarker(ArrayList<MarkerOptions> gMarkers, Location currentLocation) {
+    private MarkerOptions getNearestMarker(ArrayList<MarkerOptions> gMarkers, Location currentLocation) {
 
 
         HashMap<MarkerOptions, Float> hm = new HashMap<>();
@@ -330,19 +335,28 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
             }
         }
         // returning the nearest title
-        //createSnackBar(markerOptions, mMap);
+        assert markerOptions != null;
+        // setting text into textview
+        // make title bold
+
+
+        return markerOptions;
     }
 
-    private void createSnackBar(final MarkerOptions markerOptions, final GoogleMap mMap) {
-        Snackbar snackbar = Snackbar
-                .make(getView(), "Nearest point is : " + markerOptions.getTitle(), Snackbar.LENGTH_INDEFINITE)
-                .setAction(">", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        mMap.animateCamera(CameraUpdateFactory.newLatLng(markerOptions.getPosition()));
-                    }
-                });
+    private void setTextBottomTextView(MarkerOptions markerOptions) {
+        SpannableString boldMarkerTitle = new SpannableString(getString(nearest_point) + " " + markerOptions.getTitle());
+        boldMarkerTitle
+                .setSpan(new StyleSpan(Typeface.BOLD),
+                        getString(nearest_point).length() + 1, // plus one, because we have " "
+                        getString(nearest_point).length() + 1 + markerOptions.getTitle().length(), // sum two length of.....
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        nearestMarkerTextView.setText(boldMarkerTitle);
+    }
 
-        snackbar.show();
+
+    @Override
+    public void onClick(View view) {
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom((new LatLng(hashMap.get(markerOptions.getTitle()).getLatitude(),
+                hashMap.get(markerOptions.getTitle()).getLongitude())), 16));
     }
 }
