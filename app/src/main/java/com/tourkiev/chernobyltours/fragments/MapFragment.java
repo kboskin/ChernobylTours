@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.location.Location;
@@ -42,6 +41,7 @@ import java.util.Objects;
 
 import static com.tourkiev.chernobyltours.Constants.EXTRAS_DESCRIPTION;
 import static com.tourkiev.chernobyltours.Constants.EXTRAS_TITLE;
+import static com.tourkiev.chernobyltours.ModelMarker.convertToBitmap;
 import static com.tourkiev.chernobyltours.R.string.nearest_point;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback,
@@ -88,173 +88,201 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         modelMarkerArrayList.add(new ModelMarker(50.45148595,
                 30.52208215, getString(R.string.tour_starting_point),
                 getString(R.string.tour_starting_point_description),
-                convertToBitmap(R.drawable.data),
+                (R.drawable.data),
                 50,
-                convertToBitmap(R.drawable.pin_1)));// Tour starting point
+                (R.drawable.pin_1),
+                R.raw.tour_starting_point));// Tour starting point
         modelMarkerArrayList.add(new ModelMarker(50.45046123,
                 30.5239436,
                 getString(R.string.kreschatic_street),
                 getString(R.string.kreshatik_street_description),
-                convertToBitmap(R.drawable.data1),
+                (R.drawable.data1),
                 75,
-                convertToBitmap(R.drawable.pin_2)));// Kreschatik street
+                (R.drawable.pin_2),
+                R.raw.kres_street));// Kreschatik street
         modelMarkerArrayList.add(new ModelMarker(50.45846028,
                 30.52656412,
                 getString(R.string.podol),
                 getString(R.string.podol_description),
-                convertToBitmap(R.drawable.data2),
+                (R.drawable.data2),
                 100,
-                convertToBitmap(R.drawable.pin_3)));// Podol
+                (R.drawable.pin_3),
+                R.raw.podol));// Podol
         modelMarkerArrayList.add(new ModelMarker(50.60230732,
                 30.45289993,
                 getString(R.string.novi_petrivtsi), getString(R.string.novi_petrivtsi_description),
-                convertToBitmap(R.drawable.data3),
+                (R.drawable.data3),
                 100,
-                convertToBitmap(R.drawable.pin_4)));// Novi Petrivtsy
+                (R.drawable.pin_4),
+                R.raw.novi));// Novi Petrivtsy
         modelMarkerArrayList.add(new ModelMarker(50.77636424,
                 30.3228879,
                 getString(R.string.dymer),
                 getString(R.string.dymer_description),
-                convertToBitmap(R.drawable.data4), 200,
-                convertToBitmap(R.drawable.pin_5)));// Dymer
+                (R.drawable.data4), 200,
+                (R.drawable.pin_5),
+                R.raw.dymer));// Dymer
         modelMarkerArrayList.add(new ModelMarker(50.80640933, 30.15102267,
                 getString(R.string.katyuzhanka),
                 getString(R.string.katyachanka_description),
-                convertToBitmap(R.drawable.data5),
-                convertToBitmap(R.drawable.pin_6)));// Katyuzhanka
+                (R.drawable.data5),
+                (R.drawable.pin_6),
+                R.raw.kat));// Katyuzhanka
         modelMarkerArrayList.add(new ModelMarker(50.91928863,
                 29.90091741,
                 getString(R.string.ivankiv),
                 getString(R.string.ivankiv_description),
-                convertToBitmap(R.drawable.data6),
-                convertToBitmap(R.drawable.pin_7)));// Ivankiv
+                (R.drawable.data6),
+                (R.drawable.pin_7),
+                R.raw.ivankiv));// Ivankiv
         modelMarkerArrayList.add(new ModelMarker(51.11254837,
                 30.12176514,
                 getString(R.string.dityatki_check_point),
                 getString(R.string.dityatki_check_point_description),
-                convertToBitmap(R.drawable.data7),
-                convertToBitmap(R.drawable.pin_8)));// Dityatki Check Point
+                (R.drawable.data7),
+                (R.drawable.pin_8),
+                R.raw.dit));// Dityatki Check Point
         modelMarkerArrayList.add(new ModelMarker(51.12256969,
                 30.12187243, getString(R.string.thirty_k_zone),
                 getString(R.string.thirty_k_zone_description),
-                convertToBitmap(R.drawable.data8),
-                convertToBitmap(R.drawable.pin_9)));// 30k zone
+                (R.drawable.data8),
+                (R.drawable.pin_9),
+                R.raw.thirty_k_zone));// 30k zone
         modelMarkerArrayList.add(new ModelMarker(51.253804,
                 30.184443,
                 getString(R.string.zalesye_village),
                 getString(R.string.zalesye_village_description),
-                convertToBitmap(R.drawable.data9),
-                convertToBitmap(R.drawable.pin_10)));// Zalesye Village
+                (R.drawable.data9),
+                (R.drawable.pin_10),
+                R.raw.zal));// Zalesye Village
         // ten point check point
         modelMarkerArrayList.add(new ModelMarker(51.26497619,
                 30.20884037,
                 getString(R.string.chornobyl),
                 getString(R.string.chornobyl_description),
-                convertToBitmap(R.drawable.data10),
-                convertToBitmap(R.drawable.pin_11)));// Chornobyl
+                (R.drawable.data10),
+                (R.drawable.pin_11),
+                R.raw.chornobyl));// Chornobyl
         modelMarkerArrayList.add(new ModelMarker(51.27234674,
                 30.22422016,
                 getString(R.string.trumpeting_angel_of_chornobyl),
                 getString(R.string.trumpeting_angel_of_chornobyl_description),
-                convertToBitmap(R.drawable.data11),
-                convertToBitmap(R.drawable.pin_12)));// Trumpeting Angel of Chernobyl
+                (R.drawable.data11),
+                (R.drawable.pin_12),
+                R.raw.trumpeting));// Trumpeting Angel of Chernobyl
         modelMarkerArrayList.add(new ModelMarker(51.28024628,
                 30.20818055,
                 getString(R.string.monuments_to_liquidator),
                 getString(R.string.monuments_to_liquidator_description),
-                convertToBitmap(R.drawable.data12),
-                convertToBitmap(R.drawable.pin_13)));// Monument to the liquidators
+                (R.drawable.data12),
+                (R.drawable.pin_13),
+                R.raw.monument));// Monument to the liquidators
         modelMarkerArrayList.add(new ModelMarker(51.28688467,
                 30.20294622,
                 getString(R.string.robots),
                 getString(R.string.robots_description),
-                convertToBitmap(R.drawable.data13),
-                convertToBitmap(R.drawable.pin_14)));// Robots
+                (R.drawable.data13),
+                (R.drawable.pin_14),
+                R.raw.robots));// Robots
         modelMarkerArrayList.add(new ModelMarker(51.27269577,
                 30.23734152,
                 getString(R.string.elijah_church),
                 getString(R.string.elijah_church_description),
-                convertToBitmap(R.drawable.data14),
-                convertToBitmap(R.drawable.pin_15)));// Elijah church
+                (R.drawable.data14),
+                (R.drawable.pin_15),
+                R.raw.st_elijah));// Elijah church
         modelMarkerArrayList.add(new ModelMarker(51.35342519,
                 30.12482285,
                 getString(R.string.radar_duga),
                 getString(R.string.radar_duga_description),
-                convertToBitmap(R.drawable.data15),
-                convertToBitmap(R.drawable.pin_16)));// Radar duga
+                (R.drawable.data15),
+                (R.drawable.pin_16),
+                R.raw.radar_duga));// Radar duga
         modelMarkerArrayList.add(new ModelMarker(51.35342519,
                 30.12482285,
                 getString(R.string.kopachi_village),
                 getString(R.string.kopachi_village_description),
-                convertToBitmap(R.drawable.data16),
-                convertToBitmap(R.drawable.pin_17)));// Kopachi Village
+                (R.drawable.data16),
+                (R.drawable.pin_17),
+                R.raw.kopachi));// Kopachi Village
         modelMarkerArrayList.add(new ModelMarker(51.37854448,
                 30.11360049,
                 getString(R.string.first_part_of_reactor),
                 getString(R.string.first_part_of_reactor_description),
-                convertToBitmap(R.drawable.data17),
-                convertToBitmap(R.drawable.pin_18)));// 1st Part nuclear Power Plant
+                (R.drawable.data17),
+                (R.drawable.pin_18),
+                R.raw.first_part_nuclear));// 1st Part nuclear Power Plant
         modelMarkerArrayList.add(new ModelMarker(51.39031566,
                 30.0938648,
                 getString(R.string.chernobyl_new_safe_confinement),
                 getString(R.string.chernobyl_new_safe_confinement_description),
-                convertToBitmap(R.drawable.data18),
-                convertToBitmap(R.drawable.pin_19)));// 19 Chernobyl New Safe Confinement
+                (R.drawable.data18),
+                (R.drawable.pin_19),
+                R.raw.chernobyl_new_safe));// 19 Chernobyl New Safe Confinement
         modelMarkerArrayList.add(new ModelMarker(51.39129981,
                 30.10875911,
                 getString(R.string.second_part_power_part),
                 getString(R.string.second_part_power_plant),
-                convertToBitmap(R.drawable.data19),
-                convertToBitmap(R.drawable.pin_20)));// 19 Chernobyl New Safe Confinement
+                (R.drawable.data19),
+                (R.drawable.pin_20),
+                R.raw.second_part_power_plant));// 19 Chernobyl New Safe Confinement
         // twenty point check point
         modelMarkerArrayList.add(new ModelMarker(51.39486798,
                 30.06919384,
                 getString(R.string.pripyat_town),
                 getString(R.string.pripyat_town_descriptuion),
-                convertToBitmap(R.drawable.data20),
-                convertToBitmap(R.drawable.pin_21)));//Pripyat town
+                (R.drawable.data20),
+                (R.drawable.pin_21),
+                R.raw.pripyat_town));//Pripyat town
         modelMarkerArrayList.add(new ModelMarker(51.40798684,
                 30.06644726,
                 getString(R.string.pripyat_river_point),
                 getString(R.string.pripyat_river_point_description),
-                convertToBitmap(R.drawable.data21),
-                convertToBitmap(R.drawable.pin_22)));//Pripyat river point
+                (R.drawable.data21),
+                (R.drawable.pin_22),
+                R.raw.pripyat_river));//Pripyat river point
         modelMarkerArrayList.add(new ModelMarker(51.40666174,
                 30.05779445,
                 getString(R.string.centre),
                 getString(R.string.centre_description),
-                convertToBitmap(R.drawable.data22),
-                convertToBitmap(R.drawable.pin_23)));//Center
+                (R.drawable.data22),
+                (R.drawable.pin_23),
+                R.raw.centre));//Center
         modelMarkerArrayList.add(new ModelMarker(51.40762545,
                 30.05620122,
                 getString(R.string.ferris_wheel),
                 getString(R.string.ferris_wheel_description),
-                convertToBitmap(R.drawable.data23),
-                convertToBitmap(R.drawable.pin_24)));//Ferris wheel
+                (R.drawable.data23),
+                (R.drawable.pin_24),
+                R.raw.ferris_wheel));//Ferris wheel
         modelMarkerArrayList.add(new ModelMarker(51.41031571,
                 30.05469918,
                 getString(R.string.stadium_avangard),
                 getString(R.string.stadium_avangard_description),
-                convertToBitmap(R.drawable.data24),
-                convertToBitmap(R.drawable.pin_25)));//Stadium avangard
+                (R.drawable.data24),
+                (R.drawable.pin_25),
+                R.raw.stadium_avangard));//Stadium avangard
         modelMarkerArrayList.add(new ModelMarker(51.40670189,
                 30.04939377,
                 getString(R.string.swimming_pool),
                 getString(R.string.swimming_pool_description),
-                convertToBitmap(R.drawable.data25),
-                convertToBitmap(R.drawable.pin_26)));//Swimming pool
+                (R.drawable.data25),
+                (R.drawable.pin_26),
+                R.raw.swimming_pool));//Swimming pool
         modelMarkerArrayList.add(new ModelMarker(51.40233816,
                 30.0425756,
                 getString(R.string.jupiter_factory),
                 getString(R.string.jupiter_factory_description),
-                convertToBitmap(R.drawable.data26),
-                convertToBitmap(R.drawable.pin_27)));//Jupiter factory
+                (R.drawable.data26),
+                (R.drawable.pin_27),
+                R.raw.jupiter_factory));//Jupiter factory
         modelMarkerArrayList.add(new ModelMarker(51.40227123,
                 30.05153954,
                 getString(R.string.police_station),
                 getString(R.string.police_station_description),
-                convertToBitmap(R.drawable.data27),
-                convertToBitmap(R.drawable.pin_28)));//Police station
+                (R.drawable.data27),
+                (R.drawable.pin_28),
+                R.raw.police));//Police station
 
         return modelMarkerArrayList;
 
@@ -299,7 +327,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
             MarkerOptions marker = new MarkerOptions()
                     .position(new LatLng(modelMarker.getLatitude(), modelMarker.getLongitude()))
                     .title(modelMarker.getTitle())
-                    .icon(BitmapDescriptorFactory.fromBitmap(modelMarker.getBitmapMarker()));
+                    .icon(BitmapDescriptorFactory.fromBitmap(Bitmap.createScaledBitmap((convertToBitmap(getContext(), modelMarker.getBitmapMarkerId())), 90, 122, false)));
 
             // add a maker
             googleMapArrayList.add(marker);
@@ -366,11 +394,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
         //marker click listener
         googleMap.setOnMarkerClickListener(this);
-    }
-
-    private Bitmap convertToBitmap(int resId) {
-        return BitmapFactory.decodeResource(getResources(),
-                resId);
     }
 
 
@@ -462,6 +485,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                         getString(nearest_point).length() + 1 + markerOptions.getTitle().length(), // sum two length of.....
                         Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         nearestMarkerTextView.setText(boldMarkerTitle);
+        int firstLength = getString(R.string.nearest_point).length();
+        int secondLenght = markerOptions.getTitle().length();
+
+
     }
 
 

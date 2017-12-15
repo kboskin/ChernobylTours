@@ -1,6 +1,8 @@
 package com.tourkiev.chernobyltours;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 /**
  * Created by hp on 029 29.11.2017.
@@ -9,39 +11,40 @@ import android.graphics.Bitmap;
 public class ModelMarker {
     private double latitude, longitude;
     private String title;
-    private Bitmap bitmapImage;
+    private int bitmapMarkerId;
     private String description;
     private double radius;
+    private int audioId;
+    private int bitmapId;
 
     public void setTitle(String title) {
         this.title = title;
     }
 
 
-    private Bitmap bitmapMarker;
-
-
-    public Bitmap getBitmapImage() {
-        return bitmapImage;
+    public int getBitmapId() {
+        return bitmapId;
     }
 
-    public ModelMarker(double latitude, double longitude, String title, String description, Bitmap bitmapImage, double radius, Bitmap bitmapMarker) {
+    public ModelMarker(double latitude, double longitude, String title, String description, int bitmapId, double radius, int bitmapMarkerId, int audioId) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.title = title;
         this.description = description;
-        this.bitmapImage = bitmapImage;
+        this.bitmapId = bitmapId;
         this.radius = radius;
-        this.bitmapMarker = bitmapMarker;
+        this.bitmapMarkerId = bitmapMarkerId;
+        this.audioId = audioId;
     }
 
-    public ModelMarker(double latitude, double longitude, String title, String description, Bitmap bitmapImage, Bitmap bitmapMarker) {
+    public ModelMarker(double latitude, double longitude, String title, String description, int bitmapId, int bitmapMarkerId, int audioId) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.title = title;
         this.description = description;
-        this.bitmapImage = bitmapImage;
-        this.bitmapMarker = bitmapMarker;
+        this.bitmapId = bitmapId;
+        this.bitmapMarkerId = bitmapMarkerId;
+        this.audioId = audioId;
     }
 
     public double getLatitude() {
@@ -77,21 +80,34 @@ public class ModelMarker {
     }
 
 
-    public void setBitmapImage(Bitmap bitmapImage) {
-        this.bitmapImage = bitmapImage;
+    public void setBitmapId(int bitmapMarkerId) {
+        this.bitmapMarkerId = bitmapMarkerId;
     }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public Bitmap getBitmapMarker() {
+    public int getBitmapMarkerId() {
 
-        return  Bitmap.createScaledBitmap(bitmapMarker, 90, 122, false);
+        return bitmapMarkerId;
     }
 
-    public void setBitmapMarker(Bitmap bitmapMarker) {
-        this.bitmapMarker = bitmapMarker;
+    public void setBitmapMarkerId(int bitmapMarkerId) {
+        this.bitmapMarkerId = bitmapMarkerId;
+    }
+
+    public int getAudioId() {
+        return audioId;
+    }
+
+    public void setAudioId(int audioId) {
+        this.audioId = audioId;
+    }
+
+    public static Bitmap convertToBitmap(Context context, int resId) {
+        return BitmapFactory.decodeResource(context.getResources(),
+                resId);
     }
 
 }

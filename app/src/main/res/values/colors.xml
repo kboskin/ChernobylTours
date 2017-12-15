@@ -9,4 +9,6 @@
     <color name="colorHint">#c7c7c7</color>
     <color name="colorBackground">#151B29</color>
     <color name="colorYellow">#F5FA55</color>
+
+    <color name="colorBlueSpecific">#ACD0CB</color>
 </resources>

@@ -156,6 +156,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_log_out:
                 rewriteLogInValueAndBackToLogIn(editor);
+                System.gc();
                 break;
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -200,4 +201,9 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        System.gc();
+    }
 }
