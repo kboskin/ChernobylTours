@@ -25,7 +25,7 @@ import static com.tourkiev.chernobyltours.fragments.MapFragment.hashMap;
  * Created by hp on 001 01.12.2017.
  */
 
-public class DisplayPointActivity extends AppCompatActivity implements View.OnClickListener {
+public class DisplayPointActivity extends AppCompatActivity implements View.OnClickListener, MediaPlayer.OnCompletionListener {
 
     ImageView imageContainer;
     Intent intent;
@@ -35,6 +35,32 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
     CircleImageView circleImageView;
     MediaPlayer mediaPlayer;
     private Handler mHandler = new Handler();
+    private Runnable updateRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (mediaPlayer != null) {
+                int mCurrentPosition = (mediaPlayer.getDuration() - mediaPlayer.getCurrentPosition()); // milliseconds
+
+                timeLeftTextView.setText(String.format("%d:%d",
+                        TimeUnit.MILLISECONDS.toMinutes(mCurrentPosition),
+                        TimeUnit.MILLISECONDS.toSeconds(mCurrentPosition) -
+                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(mCurrentPosition))
+                ));
+
+                // set progress values
+                // (formula to get the value of one second in progressbar)
+                // 100 (max pr) - 1sec * 100%/all time,
+                // to calculate weight of one second
+                playProgress.setProgress((int) (
+                                100 // max progress
+                                -
+                                (TimeUnit.MILLISECONDS.toSeconds(mediaPlayer.getCurrentPosition()) // calculation of weight
+                                        * 100
+                                        / TimeUnit.MILLISECONDS.toSeconds(mediaPlayer.getDuration()))));
+            }
+            mHandler.postDelayed(this, 1000);
+        }
+    };
 
 
     @Override
@@ -49,9 +75,11 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
 
         // create instance of mp and set here id of audio
         mediaPlayer = MediaPlayer.create(this, hashMap.get(uniqueTitle).getAudioId());
+        mediaPlayer.setOnCompletionListener(this);
 
         // progressBar
         playProgress = findViewById(R.id.progress_bar);
+
         // time left textview
         timeLeftTextView = findViewById(R.id.text_view_time_left);
 
@@ -79,48 +107,9 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
             mediaPlayer.pause();
 
         } else {
-            /*Runnable updateUI = new Runnable() {
-                public void run() {
-                    try {
-                        mediaPlayer.start();
-                        //update ur ui here
-                        //timeLeft.setText((mediaPlayer.getCurrentPosition() / mediaPlayer.getDuration()) * 100);‌​
-                        timeLeft.setText(Integer.toString(mediaPlayer.getDuration() - mediaPlayer.getCurrentPosition()));
-
-                        Log.d("Dur", String.valueOf(mediaPlayer.getDuration()));
-                        //timeLeft.setText((mediaPlayer.getCurrentPosition()/mediaPlayer.getDuration())*100);
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            };
-            Handler mHandler = new Handler();
-            mHandler.post(updateUI);*/
-
-//Make sure you update Seekbar on UI thread
+            //Make sure you update Seekbar on UI thread
             mediaPlayer.start();
-            DisplayPointActivity.this.runOnUiThread(new Runnable() {
-
-                @Override
-                public void run() {
-                    if (mediaPlayer != null) {
-                        int wholeTime = mediaPlayer.getDuration();
-                        int timeLeft = wholeTime - mediaPlayer.getCurrentPosition(); // time left
-                        final int min = timeLeft / 1000 * 60;
-
-                        int mCurrentPosition = (mediaPlayer.getDuration() - mediaPlayer.getCurrentPosition()); // milliseconds
-
-
-                        timeLeftTextView.setText(String.format("%d:%d",
-                                TimeUnit.MILLISECONDS.toMinutes(mCurrentPosition),
-                                TimeUnit.MILLISECONDS.toSeconds(mCurrentPosition) -
-                                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(mCurrentPosition))
-                        ));
-                    }
-                    mHandler.postDelayed(this, 1000);
-                }
-            });
+            mHandler.postDelayed(updateRunnable, 1000);
         }
     }
 
@@ -128,12 +117,8 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
     protected void onPause() {
         super.onPause();
         mediaPlayer.stop();
-    }
+        mHandler.removeCallbacks(updateRunnable);
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mediaPlayer.start();
     }
 
     @Override
@@ -141,5 +126,14 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
         super.onStop();
         mediaPlayer.stop();
         mediaPlayer.release();
+        mHandler.removeCallbacks(updateRunnable);
+
     }
+
+    @Override
+    public void onCompletion(MediaPlayer mediaPlayer) {
+        mHandler.removeCallbacks(updateRunnable);
+        playProgress.setProgress(100);
+    }
+
 }
