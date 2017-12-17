@@ -11,4 +11,5 @@
     <color name="colorYellow">#F5FA55</color>
 
     <color name="colorBlueSpecific">#ACD0CB</color>
+    <color name="colorBlack">#000000</color>
 </resources>

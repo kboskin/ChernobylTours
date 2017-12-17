@@ -1,11 +1,15 @@
 package com.tourkiev.chernobyltours.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -36,6 +40,7 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
     MediaPlayer mediaPlayer;
     private Handler mHandler = new Handler();
     private Runnable updateRunnable = new Runnable() {
+        @SuppressLint("DefaultLocale")
         @Override
         public void run() {
             if (mediaPlayer != null) {
@@ -67,6 +72,9 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_point);
+
+        // set colour of status bar
+        setStatusBarColor();
 
         // get intents
         intent = getIntent();
@@ -134,6 +142,15 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
     public void onCompletion(MediaPlayer mediaPlayer) {
         mHandler.removeCallbacks(updateRunnable);
         playProgress.setProgress(100);
+    }
+
+
+    private void setStatusBarColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+        }
     }
 
 }

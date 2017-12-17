@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tourkiev.chernobyltours.activities.LoginActivity">
+    tools:context="com.tourkiev.chernobyltours.activities.LoginActivity"
+    android:background="@drawable/login">
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/facebook_login_button"
@@ -38,7 +39,8 @@
         android:layout_marginBottom="8dp"
         android:text="@string/first_time_here"
         android:textAlignment="center"
-        android:textSize="14sp"
-        android:textColorLink="@color/colorGray" />
+        android:textStyle="italic"
+        android:textSize="18sp"
+        android:textColorLink="@color/colorBlack" />
 
 </RelativeLayout>

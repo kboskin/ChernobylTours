@@ -17,6 +17,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,11 +67,18 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // remove title
+/*
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+*/
         setContentView(R.layout.activity_login);
 
+        setLayoutStyleFullscreen();
+
         // request permissions for users
-
-
         if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -77,7 +86,6 @@ public class LoginActivity extends AppCompatActivity {
                         showPermissionAlertDialog(LoginActivity.this);
                     }
                 }
-
             }
         }
 
@@ -318,9 +326,9 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             builder = new AlertDialog.Builder(context);
         }
-        builder.setTitle("Permissions are not granted!")
+        builder.setTitle("Permission granting!")
                 .setMessage("Chernobyl tours needs some additional permissions to be granted, so that it will work in proper way. " +
-                        "Please grand access to location and storage of mobile phone permissions. Grand permissions?")
+                        "Please grant access to location and storage of mobile phone!")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                        requestMultiplePermissions();
@@ -329,5 +337,12 @@ public class LoginActivity extends AppCompatActivity {
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setCancelable(false)
                 .show();
+    }
+
+    private void setLayoutStyleFullscreen() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
     }
 }
