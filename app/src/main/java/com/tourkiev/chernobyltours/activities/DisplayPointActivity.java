@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -57,7 +58,7 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
                 // 100 (max pr) - 1sec * 100%/all time,
                 // to calculate weight of one second
                 playProgress.setProgress((int) (
-                                100 // max progress
+                        100 // max progress
                                 -
                                 (TimeUnit.MILLISECONDS.toSeconds(mediaPlayer.getCurrentPosition()) // calculation of weight
                                         * 100
@@ -111,31 +112,36 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View view) {
-        if (mediaPlayer.isPlaying()) {
-            mediaPlayer.pause();
 
-        } else {
-            //Make sure you update Seekbar on UI thread
-            mediaPlayer.start();
-            mHandler.postDelayed(updateRunnable, 1000);
+        if (mediaPlayer != null) {
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.pause();
+
+            } else {
+                mediaPlayer.start();
+                mHandler.postDelayed(updateRunnable, 1000);
+            }
         }
+
     }
+
 
     @Override
     protected void onPause() {
+
+        Log.d("Tag", "OnPause");
         super.onPause();
-        mediaPlayer.stop();
-        mHandler.removeCallbacks(updateRunnable);
+        if (mediaPlayer != null)
+        {
+            mediaPlayer.pause();
+        }
 
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        mediaPlayer.stop();
-        mediaPlayer.release();
-        mHandler.removeCallbacks(updateRunnable);
-
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("Tag", "OnDestroy");
     }
 
     @Override
