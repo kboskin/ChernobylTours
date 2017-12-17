@@ -12,7 +12,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -38,19 +38,12 @@ dependencies {
     compile 'com.google.android.gms:play-services-maps:11.6.0'
     // g-location
     compile 'com.google.android.gms:play-services-location:11.6.0'
-    // progress fragment
-    compile 'com.github.johnkil.android-progressfragment:progressfragment:1.4.+'
-    // progress dialog
-    compile 'com.github.d-max:spots-dialog:0.7@aar'
     // circle image view
     compile 'de.hdodenhof:circleimageview:2.2.0'
     // picasso
     compile 'com.squareup.picasso:picasso:2.5.2'
     // justified textview
     compile 'com.github.bluejamesbond:textjustify-android:2.1.6'
-    // orbit menu for audio player
-    compile 'com.github.rjsvieira:floatingMenu:1.2.0'
-
 
 }
 apply plugin: 'com.google.gms.google-services'

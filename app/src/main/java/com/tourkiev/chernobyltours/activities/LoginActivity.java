@@ -1,10 +1,18 @@
 package com.tourkiev.chernobyltours.activities;
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
@@ -52,12 +60,26 @@ public class LoginActivity extends AppCompatActivity {
     private Intent loginIntent;
     private static final int RC_SIGN_IN = 999;
     private GoogleApiClient mGoogleClient;
-
+    private static final int PERMISSION_REQUEST_CODE = 888;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // request permissions for users
+
+
+        if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                        showPermissionAlertDialog(LoginActivity.this);
+                    }
+                }
+
+            }
+        }
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -215,10 +237,8 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Call this method to change text of SignInButton.
      *
-     * @param signInButton
-     *            instance of Google plus SignInButton
-     * @param buttonText
-     *            new text of the button
+     * @param signInButton instance of Google plus SignInButton
+     * @param buttonText   new text of the button
      */
     protected void setGooglePlusButtonText(SignInButton signInButton, String buttonText) {
         // Search all the views inside SignInButton for TextView
@@ -241,7 +261,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
 
-
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
@@ -253,8 +272,7 @@ public class LoginActivity extends AppCompatActivity {
                 // Google Sign In failed, update UI appropriately
                 Log.w(GOOGLE_TAG, "Google sign in failed", e);
             }
-        }
-        else {
+        } else {
             // Pass the activity result back to the Facebook SDK
             mCallbackManager.onActivityResult(requestCode, resultCode, data);
         }
@@ -266,5 +284,50 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         loginIntent = new Intent(LoginActivity.this, MainActivity.class);
         performLogin(loginIntent, currentUser);
+    }
+
+    public void requestMultiplePermissions() {
+        ActivityCompat.requestPermissions(LoginActivity.this,
+                new String[]{
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.ACCESS_COARSE_LOCATION,
+                        Manifest.permission.ACCESS_FINE_LOCATION
+                },
+                PERMISSION_REQUEST_CODE);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                // permissions are granted, will go to oncreate....
+
+            } else {
+                showPermissionAlertDialog(LoginActivity.this);
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    private void showPermissionAlertDialog(Context context) {
+        AlertDialog.Builder builder;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            builder = new AlertDialog.Builder(context, android.R.style.Theme_Material_Dialog_Alert);
+        } else {
+            builder = new AlertDialog.Builder(context);
+        }
+        builder.setTitle("Permissions are not granted!")
+                .setMessage("Chernobyl tours needs some additional permissions to be granted, so that it will work in proper way. " +
+                        "Please grand access to location and storage of mobile phone permissions. Grand permissions?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                       requestMultiplePermissions();
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setCancelable(false)
+                .show();
     }
 }
