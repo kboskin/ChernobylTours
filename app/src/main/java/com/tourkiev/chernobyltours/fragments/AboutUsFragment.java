@@ -73,7 +73,7 @@ public class AboutUsFragment extends Fragment {
             // prepare for a progress bar dialog
             if (pb == null) {
                 pb = new ProgressDialog(getActivity());
-                pb.setCancelable(true);
+                pb.setCancelable(false);
                 pb.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 pb.setMessage(getString(R.string.loading));
                 pb.show();
