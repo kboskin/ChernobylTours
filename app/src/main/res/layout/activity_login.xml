@@ -4,31 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tourkiev.chernobyltours.activities.LoginActivity"
-    android:background="@drawable/login">
+    android:background="@drawable/login"
+    tools:context="com.tourkiev.chernobyltours.activities.LoginActivity">
+
+
+    <Button
+        android:id="@+id/butFacebookStub"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/txt_credits"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="131dp"
+        android:text="Continue with Facebook"
+        android:textColor="@color/colorWhite"
+        android:textSize="13sp" />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/facebook_login_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/google_login_button"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="28dp"
-        android:paddingBottom="9dp"
-        android:paddingTop="9dp"
-        android:paddingLeft="9sp"
-        android:paddingRight="29sp"
-        android:textSize="16sp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/google_login_button"
         android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/txt_credits"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="111dp"
-        android:textSize="16sp"/>
+        android:layout_height="50dp"
+        android:layout_above="@+id/butFacebookStub"
+        android:layout_alignStart="@+id/butFacebookStub"
+        android:layout_marginBottom="14dp"
+        android:textSize="13sp" />
 
     <TextView
         android:id="@+id/txt_credits"
@@ -39,8 +42,8 @@
         android:layout_marginBottom="8dp"
         android:text="@string/first_time_here"
         android:textAlignment="center"
-        android:textStyle="italic"
+        android:textColorLink="@color/colorBlack"
         android:textSize="18sp"
-        android:textColorLink="@color/colorBlack" />
+        android:textStyle="italic" />
 
 </RelativeLayout>

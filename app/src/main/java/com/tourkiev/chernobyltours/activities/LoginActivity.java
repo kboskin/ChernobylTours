@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 999;
     private GoogleApiClient mGoogleClient;
     private static final int PERMISSION_REQUEST_CODE = 888;
+    private Button fbStubButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,15 +81,7 @@ public class LoginActivity extends AppCompatActivity {
         setLayoutStyleFullscreen();
 
         // request permissions for users
-        if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                        showPermissionAlertDialog(LoginActivity.this);
-                    }
-                }
-            }
-        }
+        selfCheckPermissions();
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -101,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
         // Initialize Facebook Login button
 
         mCallbackManager = CallbackManager.Factory.create();
-        LoginButton fbLoginButton = findViewById(R.id.facebook_login_button);
+        final LoginButton fbLoginButton = findViewById(R.id.facebook_login_button);
         fbLoginButton.setReadPermissions("email", "public_profile");
         fbLoginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -129,7 +123,7 @@ public class LoginActivity extends AppCompatActivity {
         SignInButton googleLoginButton = findViewById(R.id.google_login_button);
 
         // set proper text for google si button
-        setGooglePlusButtonText(googleLoginButton, "Продолжить с Google");
+        setGooglePlusButtonText(googleLoginButton, "Continue with Google");
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -151,6 +145,16 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 signIn();
+            }
+        });
+
+        // buttons with custom skins
+        fbStubButton = findViewById(R.id.butFacebookStub);
+        // listeners on stubs to perform real buttons click
+        fbStubButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fbLoginButton.performClick();
             }
         });
 
@@ -250,13 +254,14 @@ public class LoginActivity extends AppCompatActivity {
      */
     protected void setGooglePlusButtonText(SignInButton signInButton, String buttonText) {
         // Search all the views inside SignInButton for TextView
+
         for (int i = 0; i < signInButton.getChildCount(); i++) {
             View v = signInButton.getChildAt(i);
 
             // if the view is instance of TextView then change the text SignInButton
             if (v instanceof TextView) {
                 TextView tv = (TextView) v;
-                tv.setTextSize(17);
+                tv.setTextSize(16);
                 tv.setText(buttonText);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
                 return;
@@ -343,6 +348,19 @@ public class LoginActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
+    }
+    private void selfCheckPermissions()
+    {
+        // request permissions for users
+        if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                        showPermissionAlertDialog(LoginActivity.this);
+                    }
+                }
+            }
         }
     }
 }
