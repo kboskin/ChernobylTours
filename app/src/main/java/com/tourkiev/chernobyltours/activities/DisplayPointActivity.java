@@ -7,7 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -74,6 +74,10 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_point);
 
+
+        // set back button
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true); // In `OnCreate();`
+
         // set colour of status bar
         setStatusBarColor();
 
@@ -128,8 +132,6 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     protected void onPause() {
-
-        Log.d("Tag", "OnPause");
         super.onPause();
         if (mediaPlayer != null)
         {
@@ -139,15 +141,22 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d("Tag", "OnDestroy");
-    }
-
-    @Override
     public void onCompletion(MediaPlayer mediaPlayer) {
         mHandler.removeCallbacks(updateRunnable);
         playProgress.setProgress(100);
+        timeLeftTextView.setText(getText(R.string.start));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; go home
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 
