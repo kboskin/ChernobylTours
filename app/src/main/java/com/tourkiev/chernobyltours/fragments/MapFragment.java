@@ -2,6 +2,7 @@ package com.tourkiev.chernobyltours.fragments;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -9,6 +10,7 @@ import android.graphics.Typeface;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.text.Spannable;
@@ -41,6 +43,7 @@ import java.util.Objects;
 
 import static com.tourkiev.chernobyltours.Constants.EXTRAS_DESCRIPTION;
 import static com.tourkiev.chernobyltours.Constants.EXTRAS_TITLE;
+import static com.tourkiev.chernobyltours.Constants.PREFS_TRACK_GEO;
 import static com.tourkiev.chernobyltours.ModelMarker.convertToBitmap;
 import static com.tourkiev.chernobyltours.R.string.nearest_point;
 
@@ -56,6 +59,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     MarkerOptions markerOptions;
     RelativeLayout bottomLayout;
     public static HashMap<String, ModelMarker> hashMap;
+    Boolean trackGeo;
 
     public MapFragment() {
         // Required empty public constructor
@@ -377,8 +381,15 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
             public void onMyLocationChange(Location location) {
                 LatLng loc = new LatLng(location.getLatitude(), location.getLongitude());
                 if (mMap != null) {
-                    // camera animation to current position
-                    mMap.animateCamera(CameraUpdateFactory.newLatLng(loc));
+
+                    // checking for geolocation tracking from settings
+                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    trackGeo = preferences.getBoolean(PREFS_TRACK_GEO, true);
+
+                    if (trackGeo)
+                    {
+                        mMap.animateCamera(CameraUpdateFactory.newLatLng(loc));
+                    }
 
                     // returns nearest marker
                     markerOptions = getNearestMarker(googleMapArrayList, location);
