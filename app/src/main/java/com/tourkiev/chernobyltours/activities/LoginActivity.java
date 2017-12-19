@@ -302,8 +302,6 @@ public class LoginActivity extends AppCompatActivity {
     public void requestMultiplePermissions() {
         ActivityCompat.requestPermissions(LoginActivity.this,
                 new String[]{
-                        Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
                         Manifest.permission.ACCESS_COARSE_LOCATION,
                         Manifest.permission.ACCESS_FINE_LOCATION
                 },
@@ -314,8 +312,9 @@ public class LoginActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         if (requestCode == PERMISSION_REQUEST_CODE) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // permissions are granted, will go to oncreate....
+
 
             } else {
                 showPermissionAlertDialog(LoginActivity.this);
@@ -333,10 +332,10 @@ public class LoginActivity extends AppCompatActivity {
         }
         builder.setTitle("Permission granting!")
                 .setMessage("Chernobyl tours needs some additional permissions to be granted, so that it will work in proper way. " +
-                        "Please grant access to location and storage of mobile phone!")
+                        "Please grant access to location of mobile phone!")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                       requestMultiplePermissions();
+                        requestMultiplePermissions();
                     }
                 })
                 .setIcon(android.R.drawable.ic_dialog_alert)
@@ -350,16 +349,12 @@ public class LoginActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
     }
-    private void selfCheckPermissions()
-    {
+
+    private void selfCheckPermissions() {
         // request permissions for users
-        if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                        showPermissionAlertDialog(LoginActivity.this);
-                    }
-                }
+        if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                showPermissionAlertDialog(LoginActivity.this);
             }
         }
     }
