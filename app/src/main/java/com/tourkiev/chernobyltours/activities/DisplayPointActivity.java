@@ -37,7 +37,8 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
     DocumentView documentView;
     ProgressBar playProgress;
     TextView timeLeftTextView;
-    CircleImageView circleImageView;
+    CircleImageView circleImageViewButtonPlay;
+    CircleImageView circleImageViewButtonRepeat;
     MediaPlayer mediaPlayer;
     private Handler mHandler = new Handler();
     private Runnable updateRunnable = new Runnable() {
@@ -107,9 +108,13 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
         imageContainer = findViewById(R.id.content_image);
         imageContainer.setImageBitmap(convertToBitmap(getApplicationContext(), hashMap.get(uniqueTitle).getBitmapId()));
 
-        // circle image with png
-        circleImageView = findViewById(R.id.circle_image_view_button);
-        circleImageView.setOnClickListener(this);
+        // circle image view play with png
+        circleImageViewButtonPlay = findViewById(R.id.circle_image_view_button);
+        circleImageViewButtonPlay.setOnClickListener(this);
+
+        // circle image view repeat
+        circleImageViewButtonRepeat = findViewById(R.id.circle_image_view_button_repeat);
+        circleImageViewButtonRepeat.setOnClickListener(this);
 
 
     }
@@ -117,17 +122,36 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View view) {
 
-        if (mediaPlayer != null) {
-            if (mediaPlayer.isPlaying()) {
-                mediaPlayer.pause();
-                circleImageView.setImageResource(R.drawable.play);
+        switch (view.getId())
+        {
+            case R.id.circle_image_view_button :
+                if (mediaPlayer != null) {
+                    if (mediaPlayer.isPlaying()) {
+                        mediaPlayer.pause();
+                        circleImageViewButtonPlay.setImageResource(R.drawable.play);
 
-            } else {
+                    } else {
+                        mediaPlayer.start();
+                        mHandler.postDelayed(updateRunnable, 1000);
+                        circleImageViewButtonPlay.setImageResource(R.drawable.stop);
+
+                    }
+                }
+                break;
+            case  R.id.circle_image_view_button_repeat :
+            if (mediaPlayer != null) {
+                // process player to position
+                mediaPlayer.seekTo(mediaPlayer.getDuration());
+                // set text into textview
+                timeLeftTextView.setText(R.string.start);
+                // set image to button
+                circleImageViewButtonPlay.setImageResource(R.drawable.play);
+                // set progress to progressbar
+                playProgress.setProgress(100);
+                // start player
                 mediaPlayer.start();
-                mHandler.postDelayed(updateRunnable, 1000);
-                circleImageView.setImageResource(R.drawable.stop);
-
             }
+            break;
         }
 
     }
@@ -139,7 +163,7 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
         if (mediaPlayer != null)
         {
             mediaPlayer.pause();
-            circleImageView.setImageResource(R.drawable.play);
+            circleImageViewButtonPlay.setImageResource(R.drawable.play);
         }
 
     }
@@ -147,9 +171,6 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onCompletion(MediaPlayer mediaPlayer) {
         mHandler.removeCallbacks(updateRunnable);
-        playProgress.setProgress(100);
-        timeLeftTextView.setText(getText(R.string.start));
-        circleImageView.setImageResource(R.drawable.play);
     }
 
     @Override
