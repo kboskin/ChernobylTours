@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity
         Picasso.with(getApplicationContext())
                 .load(profileImageUrl)
                 .into(profileImageView);
-        profileTextName.setText("Hello" + ", " + profileName + " " + " " + "!");
+        profileTextName.setText("Greetings" + ", " + profileName + " " + "!");
 
         if (savedInstanceState == null) {
             MapFragment mapFragment = new MapFragment();
@@ -167,6 +168,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_log_out:
                 rewriteLogInValueAndBackToLogIn(editor);
                 System.gc();
+                break;
+            case R.id.nav_language :
+                Toast.makeText(getApplicationContext(), "For now only one language. In development...", Toast.LENGTH_LONG).show();
                 break;
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

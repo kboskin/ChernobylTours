@@ -120,10 +120,13 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
         if (mediaPlayer != null) {
             if (mediaPlayer.isPlaying()) {
                 mediaPlayer.pause();
+                circleImageView.setImageResource(R.drawable.play);
 
             } else {
                 mediaPlayer.start();
                 mHandler.postDelayed(updateRunnable, 1000);
+                circleImageView.setImageResource(R.drawable.stop);
+
             }
         }
 
@@ -136,6 +139,7 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
         if (mediaPlayer != null)
         {
             mediaPlayer.pause();
+            circleImageView.setImageResource(R.drawable.play);
         }
 
     }
@@ -145,6 +149,7 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
         mHandler.removeCallbacks(updateRunnable);
         playProgress.setProgress(100);
         timeLeftTextView.setText(getText(R.string.start));
+        circleImageView.setImageResource(R.drawable.play);
     }
 
     @Override
