@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -16,10 +17,12 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,20 +68,13 @@ public class LoginActivity extends AppCompatActivity {
     private GoogleApiClient mGoogleClient;
     private static final int PERMISSION_REQUEST_CODE = 888;
     private Button fbStubButton;
+    private TextView creditsTextView;
+    private SignInButton googleLoginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // remove title
-/*
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-*/
         setContentView(R.layout.activity_login);
-
-        setLayoutStyleFullscreen();
 
         // request permissions for users
         selfCheckPermissions();
@@ -88,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
         loginIntent = new Intent(LoginActivity.this, MainActivity.class);
 
         // make link to soloeast site
-        TextView creditsTextView = (findViewById(R.id.txt_credits));
+        creditsTextView = (findViewById(R.id.txt_credits));
         creditsTextView.setMovementMethod(LinkMovementMethod.getInstance());
         creditsTextView.setTextColor(getResources().getColor(R.color.colorGray));
 
@@ -157,6 +153,8 @@ public class LoginActivity extends AppCompatActivity {
                 fbLoginButton.performClick();
             }
         });
+
+        setLayoutStyleFullscreen();
 
 
     }
@@ -346,7 +344,16 @@ public class LoginActivity extends AppCompatActivity {
     private void setLayoutStyleFullscreen() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+
+            if (!hasNavBar(getResources())) {
+                window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+            } else {
+                window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+                window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+                final android.widget.RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)creditsTextView.getLayoutParams();
+                layoutParams.setMargins(0, 0, 0, getPixelsFromDPs(LoginActivity.this));
+                creditsTextView.setLayoutParams(layoutParams);
+            }
         }
     }
 
@@ -357,5 +364,15 @@ public class LoginActivity extends AppCompatActivity {
                 showPermissionAlertDialog(LoginActivity.this);
             }
         }
+    }
+
+    private boolean hasNavBar(Resources resources) {
+        int id = resources.getIdentifier("config_showNavigationBar", "bool", "android");
+        return id > 0 && resources.getBoolean(id);
+    }
+
+    private int getPixelsFromDPs(Context context){
+        return (int) (TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, 50, context.getResources().getDisplayMetrics()));
     }
 }
