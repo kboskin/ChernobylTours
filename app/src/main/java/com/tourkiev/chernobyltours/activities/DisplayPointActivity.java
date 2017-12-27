@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -16,15 +17,17 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bluejamesbond.text.DocumentView;
+import com.tourkiev.chernobyltours.ModelMarker;
 import com.tourkiev.chernobyltours.R;
 
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static com.tourkiev.chernobyltours.Constants.EXTRAS_HASH_MAP;
 import static com.tourkiev.chernobyltours.Constants.EXTRAS_TITLE;
 import static com.tourkiev.chernobyltours.ModelMarker.convertToBitmap;
-import static com.tourkiev.chernobyltours.fragments.MapFragment.hashMap;
 
 /**
  * Created by hp on 001 01.12.2017.
@@ -84,8 +87,12 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
 
         // get intents
         intent = getIntent();
+
         // unique id for all of the markers
         String uniqueTitle = intent.getStringExtra(EXTRAS_TITLE);
+
+        // get hashMap from extras
+        HashMap<String, ModelMarker> hashMap = (HashMap<String, ModelMarker>) intent.getSerializableExtra(EXTRAS_HASH_MAP);
 
         // create instance of mp and set here id of audio
         mediaPlayer = MediaPlayer.create(this, hashMap.get(uniqueTitle).getAudioId());
@@ -129,11 +136,14 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
                     if (mediaPlayer.isPlaying()) {
                         mediaPlayer.pause();
                         circleImageViewButtonPlay.setImageResource(R.drawable.play);
+                        Log.d("DisplayPoint", "not null");
 
                     } else {
                         mediaPlayer.start();
                         mHandler.postDelayed(updateRunnable, 1000);
                         circleImageViewButtonPlay.setImageResource(R.drawable.stop);
+                        Log.d("DisplayPoint", "in else");
+                        Log.d("DisplayPoint", mediaPlayer.toString());
 
                     }
                 }
@@ -141,29 +151,18 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
             case  R.id.circle_image_view_button_repeat :
             if (mediaPlayer != null) {
                 // process player to position
-                mediaPlayer.seekTo(mediaPlayer.getDuration());
+                mediaPlayer.seekTo(0);
                 // set text into textview
                 timeLeftTextView.setText(R.string.start);
                 // set image to button
-                circleImageViewButtonPlay.setImageResource(R.drawable.play);
+                circleImageViewButtonPlay.setImageResource(R.drawable.stop);
                 // set progress to progressbar
                 playProgress.setProgress(100);
                 // start player
                 mediaPlayer.start();
+                Log.d("DisplayPoint", "in if");
             }
             break;
-        }
-
-    }
-
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (mediaPlayer != null)
-        {
-            mediaPlayer.pause();
-            circleImageViewButtonPlay.setImageResource(R.drawable.play);
         }
 
     }

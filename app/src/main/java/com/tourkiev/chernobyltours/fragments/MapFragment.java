@@ -42,6 +42,7 @@ import java.util.HashMap;
 import java.util.Objects;
 
 import static com.tourkiev.chernobyltours.Constants.EXTRAS_DESCRIPTION;
+import static com.tourkiev.chernobyltours.Constants.EXTRAS_HASH_MAP;
 import static com.tourkiev.chernobyltours.Constants.EXTRAS_TITLE;
 import static com.tourkiev.chernobyltours.Constants.PREFS_TRACK_GEO;
 import static com.tourkiev.chernobyltours.ModelMarker.convertToBitmap;
@@ -58,7 +59,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     TextView nearestMarkerTextView;
     MarkerOptions markerOptions;
     RelativeLayout bottomLayout;
-    public static HashMap<String, ModelMarker> hashMap;
+    HashMap<String, ModelMarker> hashMap;
     Boolean trackGeo;
 
     public MapFragment() {
@@ -299,6 +300,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         Intent intent = new Intent(getContext(), DisplayPointActivity.class);
         intent.putExtra(EXTRAS_TITLE, marker.getTitle());
         intent.putExtra(EXTRAS_DESCRIPTION, marker.getSnippet());
+        intent.putExtra(EXTRAS_HASH_MAP, hashMap);
 
         startActivity(intent);
         return true;

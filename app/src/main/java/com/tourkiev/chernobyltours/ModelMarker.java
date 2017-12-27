@@ -4,11 +4,13 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import java.io.Serializable;
+
 /**
  * Created by hp on 029 29.11.2017.
  */
 
-public class ModelMarker {
+public class ModelMarker implements Serializable {
     private double latitude, longitude;
     private String title;
     private int bitmapMarkerId;

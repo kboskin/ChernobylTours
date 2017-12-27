@@ -25,6 +25,7 @@ public class Constants {
     public static final String EXTRAS_IMAGE = "image";
     public static final String EXTRAS_TITLE = "title";
     public static final String EXTRAS_DESCRIPTION = "description";
+    public static final String EXTRAS_HASH_MAP = "map";
 
     public static final String PREFS_TRACK_GEO = "track_geolocation";
 
