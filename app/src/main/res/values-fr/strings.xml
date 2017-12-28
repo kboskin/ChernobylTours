@@ -1,0 +1,309 @@
+<resources>
+    <string name="app_name">ChernobylTours</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Paramètres</string>
+
+    <string name="facebook_app_id">299931483831093</string>
+    <string name="fb_login_protocol_scheme">fb299931483831093</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyAv6U6eH2WbidLdc81XZNKYc1LOKR1JqN0
+    </string>
+
+
+    <string name="first_time_here"><a href="https://www.tourkiev.com/">Première fois ici?</a></string>
+    <string name="loading">Chargement</string>
+
+    <string name="tour_starting_point">Début de la visite</string>
+    <string name="kreschatic_street">La rue Kreschatik</string>
+    <string name="podol">Podol</string>
+    <string name="novi_petrivtsi">Novi Petrivtsi</string>
+    <string name="dymer">Dymer</string>
+    <string name="katyuzhanka">Katyuzhanka</string>
+    <string name="ivankiv">Ivankiv</string>
+    <string name="dityatki_check_point">Le poste de contrôle Dityatki</string>
+    <string name="thirty_k_zone">La Zone de 30 km</string>
+    <string name="zalesye_village">Le village Zalyesye</string>
+    <string name="chornobyl">La ville de Tchernobyl</string>
+    <string name="trumpeting_angel_of_chornobyl">Le monument de l\'étoile Absinthe (l\'Ange à la trompette)</string>
+    <string name="monuments_to_liquidator">Un monument pour ceux qui ont sauvé le monde</string>
+    <string name="robots">Les robots</string>
+    <string name="elijah_church">L\'Église St-Élie</string>
+    <string name="radar_duga">Duga / Le pic-bois russe</string>
+    <string name="kopachi_village">Le village Kopachi</string>
+    <string name="first_part_of_reactor">1ère partie La centrale nucléaire</string>
+    <string name="chernobyl_new_safe_confinement">Avant le Nouveau confinement de sécurité</string>
+    <string name="second_part_power_part">2e partie La centrale nucléaire</string>
+    <string name="pripyat_town">La ville de Pripyat</string>
+    <string name="pripyat_river_point">Le Port sur la rivière Pripiat</string>
+    <string name="centre">Le Centre</string>
+    <string name="ferris_wheel">La Grande roue</string>
+    <string name="stadium_avangard">Le Stade Avangard</string>
+    <string name="swimming_pool">La piscine</string>
+    <string name="jupiter_factory">L\'usine Jupiter</string>
+    <string name="police_station">Le Poste de police</string>
+
+    <string name="tour_starting_point_description">Nous commençons notre tour au centre-ville de Kiev, capitale de l\'Ukraine.
+Depuis 2000 les véhicules SoloEast Voyage quittent ce point de rencontre sur la place de l\'Indépendance pour la visite d\'un endroit unique au monde - la Zone d\'exclusion de Tchernobyl.
+Il faut deux heures pour arriver au poste de contrôle de la zone. Habituellement, nous passons un documentaire que vous pouvez regarder maintenant - il est en anglais. Ou bien vous pouvez continuer à écouter notre guide dans votre langue.
+</string>
+    <string name="kreshatik_street_description">Maintenant, nous entrons dans la rue principale de Kiev - la rue Kreschatik. Autrefois le terrain de chasse pour les princes et la noblesse, Kreschatik était connu pour ses paysages magnifiques, ses vallées luxuriantes et ses rivières étincelantes. La construction du site a commencé au XVIIIe siècle lorsque des habitations ont commencé à prendre forme sur le terrain, avec des bâtiments historiques tels que le Théâtre de Kiev, le premier à être construit dans la ville en 1805. Vers 1837, Kreschatik était considérée comme l\'un des rues les plus modernes d\'Ukraine, et elle a conservé sa notoriété comme point de repère de la ville et destination touristique majeure.
+
+À mesure que la rue était pavée et que les merveilles architecturales commençaient à s\'aligner le long de la Kreschatik bordée de châtaigniers, elle s\'est développée en aire de jeux pour les gens riches et célèbres. Elle est toujours synonyme de luxe, élégance et haute couture. Pendant les deux Guerre mondiales, la rue est entrée dans la ligne de feu et a été presque complètement détruite. Heureusement, les efforts de reconstruction ont débuté immédiatement après la fin de la guerre, en 1943, et la rue est devenue un peu plus large et les bâtiments ont commencé à prendre des formes plus élevées.
+
+Kreschatik était aussi toujours au courant des nouvelles, avec des journaux de Moscou, de Belgique et d\'autres pays et villes livrés aux magasins et propriétaires de maison vivant le long de la rue. Son éclairage de charme et raffinement peut encore être vu aujourd\'hui. Même si les bâtiments historiques décorent toujours la rue, elle a continué à être un site à la mode et les visiteurs trouveront ici les dernières modes et les restaurants les plus exquis. Les confiseries, les hôtels et les grands magasins offrent le meilleur de Kiev, et ils sont populaires auprès des habitants qu\'auprès des touristes.
+
+D\'autres attractions sur Kreschatik incluent la Philharmonie nationale, les bâtiments commerciaux, les institutions bancaires internationales, le Monument Stolipine, le Monument d\'Alexandre le Libérateur, la Place Nezalezhnosti, la place de l\'Europe, le Théâtre Franko et la Verkhovna Rada. Kreschatik est plus que juste une attraction ou une rue bordée d\'histoire et d\'émerveillement. Elle est la fierté de Kiev et un mode de vie pour beaucoup de gens. On recommande aux visiteurs de Kiev de se promener le long de la Kreschatik, où ils pourront découvrir le patrimoine de la ville, ainsi que le style de la haute société en Ukraine.
+</string>
+    <string name="podol_description">Nous entrons dans le célèbre quartier de Kiev appelé Podol.
+ C\'est l\'un des plus anciens quartiers de Kiev, et le lieu de naissance du marché, du commerce et de l\'industrie de la ville. Il contient de nombreux monuments architecturaux et historiques, et de nouveaux sites archéologiques sont encore mis au jour.
+Le nom "Podil" signifie quelque chose qui se trouve vers le bas. Cette zone était le centre du commerce et de l\'artisanat de Kiev. Les noms de certains environs de Podil reflètent ce fait : "Dehtyari" (ceux qui travaille avec le goudron), "Honchari" (potiers), "Kozhemyaki" (artisans travaillant avec du cuir). Sur le territoire de Podil on a trouvé des constructions anciennes, certaines d\'entre elles remontant au 9e-11e siècle. On a intensément bâti dans Podil au 17ème siècle. Une foire annuelle y avait lieu depuis 1797.
+
+Avant le grand incendie de Podil de 1811, c\'était le quartier le plus peuplé de la ville avec 2.068 maisons sur les 3672 logements dans l\'ensemble de Kiev. Le feu a largement endommagé le quartier et a changé l\'apparence de Podil de manière dramatique. Après l\'incendie, Podil a été redessiné et un grand nombre de nouvelles rues sont apparues, qui existent encore aujourd\'hui. A cette époque, on a construit des bâtiments tels que la Maison du contrat, l\'Université nationale de Kiev - l\'Académie Mohyla, une galerie marchande et d\'autres encore.
+
+Jusqu\'à la Seconde Guerre mondiale, la section juste au nord de la rue Nyzhniy Val était appelée Ploska chast ou Ploskaya sloboda. C\'était l\'abri de nombreux Juifs pauvres qui y vivaient dans des conditions misérables.
+</string>
+    <string name="novi_petrivtsi_description">Nous passons par Novi Petrivtsi, l\'un des villages ukrainiens, qui est devenu populaire grâce au territoire de l\'ancien monastère Mezhyhirya qui, en 2008-2009, s\'est trouvé au centre d\'un grand scandale politique.
+
+La grande maison avec ses vastes terrains (y compris un zoo !) était l\'ancienne résidence privée du 4ème Président de l\'Ukraine, Viktor Ianoukovitch
+
+Le territoire est entouré par une haute clôture de cinq mètres le long du périmètre de 54 km (34 miles). Sur ce territoire se trouvent un quai de yacht, un club équestre, un champ de tir, un court de tennis et de nombreux autres complexes touristiques de loisirs ainsi que des terrains de chasse. Mezhyhirya exigeait un effectif de 2.000 personnes et des coûts d\'entretien quotidien de 75 000 $.
+
+Cet incroyable gaspillage et la corruption politique ont pris fin en 2014, lorsque Ianoukovitch a été contraint de démissionner au cours de la Révolution de la dignité. Aujourd\'hui, la résidence Mezhyhirya est un palais moderne, et pour les visiteurs, c’est une excursion alternative d\'une journée intéressante pour des vacances plus longues basées à Kiev.
+</string>
+    <string name="dymer_description">Nous approchons d\'un village appelé Dymer. Il a été fondé au Xe-XIe siècle. Le nom de Dymer vient du mot "дым" qui signifie smog. À cause des nombreuses usines qui s\'y trouvaient, il y avait beaucoup de smog autour de la ville. Voilà pourquoi il s\'est vu attribuer ce nom. C\'était une ville polonaise jusqu\'en 1703. Ensuite, Semen Paliy s\'est abattu là-dessus et a repris la domination sur le territoire. Dymer n\'a plus jamais été le même. Il est devenu un village avec plein de souvenirs. Néanmoins, Dymer n\'est pas la moindre colonie en Ukraine.
+
+Au-delà de toutes les usines qui s\'y trouvent, il existe aussi une usine de couture, trois stations de gaz, un parc automobile, deux écoles, deux bibliothèques, un centre d\'art, une école de musique et un hôpital.
+</string>
+    <string name="katyachanka_description">Maintenant, nous traversons un ancien village appelé Katyuzhanka. Il a été fondé en 1500. Son nom vient du premier habitant, Katyuga. Katyuzhanka nous a donné deux actrices très célèbres - les présentatrices Olga et Natalia Sumska.
+
+Il y a encore une chose plus intéressante pour laquelle il est célèbre. Environ 500 personnes viennent ici chaque week-end pour se faire soigner pour des problèmes de tabagisme, alcool, etc. Le prêtre orthodoxe Olexander écoute des besoins de chacun à tour de rôle et explique qu\'ils vont être sévèrement punis par Dieu s\'ils fument ou boivent de l\'alcool au cours de l\'année. Si une personne ne peut pas vivre sans au moins une cigarette par jour, elle sera autorisée à en prendre quelques-unes. Mais pas plus que ce dont elle sera convenu avec le prêtre.
+</string>
+    <string name="ivankiv_description">Ici, nous sommes à Ivankiv où nous pouvons voir un monument intéressant. Le soi-disant « Œuf de la vie ». Une sculpture assez inhabituelle, ce qui attire l\'attention des touristes. L’« Œuf de la vie » a été créé en 2000. Cette oeuvre d\'art concret a été offerte au village par l\'architecte allemand A. Kolbe. Le monument est un symbole de la renaissance et de la fertilité de la vie et de la terre affectées par la tragédie de Tchernobyl.
+
+Au milieu du 15ème siècle, le territoire autour de la ville moderne d\'Ivankiv s\'appelait Zemlia Trudinivska (La terre Trudinivska). C\'était une propriété du boyard Olehnja Juhnovich de Kiev. En 1524, roi de Pologne Sigismond le Vieux a donné cette terre à la Kiev Burgess Tishko Proskura. En 1589, Ivan Proskura est devenu propriétaire de cette terre. La ville a été fondée en 1589 et nommée d\'après Ivan Proskura. Au début, son nom était Ivaniv et Ivanivka, qui est devenu Ivankiv par la suite. Au début du 17ème siècle les Tatars de Crimée ont fait quatre campagnes militaires en Polésie et par conséquent, beaucoup de gens d\'Ivankiv ont été tués, fait prisonniers et vendus comme esclaves.
+
+Le village est situé à 42 miles au sud de la centrale de Tchernobyl, et l\'entrée dans la zone d\'exclusion est située 20 miles au nord. La ville n\'a pas été aussi touchée par la catastrophe de Tchernobyl que d\'autres villes.
+Le raïon d\'Ivankiv a augmenté en 1986, après la séparation du raïon de Tchernobyl en raison de la catastrophe de Tchernobyl. Aujourd\'hui, le raïon d\'Ivankiv administre l\'ancien territoire de la région dépeuplée qui fait partie majoritairement de la zone d\'aliénation et qui est supervisée par le Ministère des situations d\'urgence d\'Ukraine.
+</string>
+    <string name="dityatki_check_point_description">Nous approchons du premier poste de contrôle sur notre chemin. Veuillez ne pas prendre de photos de celui-ci ou du personnel du poste de contrôle. Car cela peut entraîner des problèmes pour le groupe. Mais vous êtes invités à prendre des photos des affiches près de celui-ci. Dans la journée, il y aura quelques autres postes de contrôle dont nous ne sommes pas autorisés à prendre des photos.
+
+Ici, nous sommes à l\'entrée principale de la zone d\'exclusion. Ceci est le poste de contrôle Dytyatki. Le nom vient du village voisin, Dytyatky.
+C\'est l\'un des rares villages en dehors de la zone d\'exclusion de Tchernobyl qui appartenait au district de Tchernobyl avant l\'accident. La plupart des villages ont été évacués. Il y a seulement 1000 habitants à Dytyaky - de nombreux chômeurs. Comme l\'endroit relève de la catégorie quatre (endroits les plus atteints par des radiations) - le gouvernement ukrainien continue à déployer ici un programme d\'aide sociale, qui aide les gens à survivre. D\'autre part, selon l\'administration des soins de santé du district - Dytyatky est reconnu comme l\'un des établissements les plus dépressifs de la région, avec un niveau extrêmement élevé de dépendance à l\'alcool. Le poste de contrôle a été dressé ici en 1986. La tâche principale de ce poste est d\'éliminer l\'évasion des articles contaminés par la radioactivité de la zone d\'exclusion. Une autre mission très importante de ce poste de contrôle est un contrôle dosimétrique de chaque personne qui quitte la région. Chaque visiteur est obligé de passer par une machine spéciale qui effectuera une vérification complète de la contamination radioactive et déclenchera une alarme si elle en découvre. Ce guide de Tchernobyl est créé par SoloEast Voyage et s\'adresse exclusivement à ses clients.
+</string>
+    <string name="thirty_k_zone_description">Bienvenue dans la Zone d\'aliénation de la centrale nucléaire de Tchernobyl. Elle est aussi communément connue comme la zone d\'exclusion de Tchernobyl, la Zone de 30 Kilomètres. Établie par l\'armée soviétique peu après la catastrophe de 1986, elle existait d\'abord comme une zone de 30 km de rayon à partir de la Centrale nucléaire de Tchernobyl désignée pour l\'évacuation et placée sous contrôle militaire. La zone d\'exclusion couvre une superficie d\'environ 2.600 km2 (1.000 milles carrés). Le but de la Zone d\'exclusion est de restreindre l\'accès à des zones dangereuses, de réduire la propagation de la contamination radiologique et de mener des activités de surveillance radiologique et écologique.
+
+La Zone de 30 km a d\'abord été divisée en trois sous-zones : la zone immédiatement adjacente au réacteur 4, une zone d\'un rayon d\'environ 10 km à partir du réacteur et le restant de la zone de 30 km. Les vêtements de protection et les installations disponibles variaient entre ces sous-zones.  Vous pourriez penser que le niveau de rayonnement monte en flèche ici. Mais il est inférieur même à celui de Kiev. De nouvelles routes sont apparues ici, donc notre voiture peut se déplacer en toute sécurité droit vers les réacteurs. Mais si vous marchez plus loin dans les champs vous pouvez trouver de nombreux points chauds.
+
+Néanmoins, certaines personnes sont revenues vivre ici. Nous les appelons samosely (auto-colons). Généralement, ils sont des gens à la retraite qui vivaient ici avant l\'accident. Il y a 162 auto-colons qui ne croient pas aux radiations parce que personne ne peut les goûter, voir ou sentir. Ils vivent une vie tout à fait intéressante et longue bien que tout le monde ait pensé qu\'ils allaient mourir bientôt.  Pas de coke, pas de fast-food, pas de longues files d\'attente dans les banques))) Ces personnes ont des poulets pour la viande, des chats et des chiens pour passer le temps.
+
+Vous pouvez vous poser des questions au sujet des animaux mutants, mais nous n\'allons pas en voir ici. Ils n\'ont vécu que quelques semaines ou mois après l\'accident, ensuite ils sont morts. Sans les gens chassant les animaux et sans le trafic dans les rues, de nos jours, la zone d\'exclusion de Tchernobyl est devenue un paradis pour la nature sauvage. Ici vous pouvez trouver 100 loups. Deux cents autres d\'entre eux vivent en Biélorussie. La zone d\'exclusion biélorusse est complètement abandonnée, c\'est pourquoi il y a beaucoup plus d\'animaux sauvages.  Ici, dans la zone de 30 km, vous pouvez également trouver des chiens viverrins, des castors, des putois, des renards roux, des bisons, des sangliers, des orignaux, des chéries, des blaireaux et des chevaux de Przewalski. Donc, en entrant dans la zone d\'exclusion, rappelez-vous que nous ne sommes pas seuls ici)
+</string>
+    <string name="zalesye_village_description">On peut à peine dire que nous sommes dans le village maintenant. La centrale électrique se trouve à 19 km de nous. Il y a des arbres partout et les maisons sont à peine visibles. Quoi qu\'il en soit, Zalesye était le plus grand village de cette zone. Environ 3000 personnes vivaient ici. Il y avait une école, une bibliothèque, une maternité et ce qu\'on appelait en Union soviétique un "palais de la culture", où les gens se réunissaient pour différentes raisons telles que regarder des films ou danser, pour des élections, etc. Maintenant, tout cela a disparu. Le nom du village lui-même semble ironique, car il signifie le "village derrière la forêt" …
+
+Le dernier auto-colon, Rosaliya, est décédé en 2015. Elle a été enseignante à l\'école locale. Rosaliya a passé ses dernières années sans électricité ou gaz pour chauffer la maison et faire la cuisine. Néanmoins, elle ne s\'est jamais plainte.
+</string>
+    <string name="chornobyl_description">En entrant dans la ville de Tchernobyl, il faut savoir que la centrale électrique ne se trouve pas ici. Elle est à 15 km. Bien que la ville de Pripyat soit plus proche, elle a été créée en 1970 spécifiquement pour les travailleurs. Et Tchernobyl était le centre administratif le plus proche à ce moment-là.
+
+Avant le 20e siècle, Tchernobyl était habitée par des paysans ukrainiens et polonais, et un nombre relativement important de Juifs. Plus tard, la ville a été choisie comme site de la première centrale nucléaire sur le sol ukrainien. Le 26 Avril 1986, le réacteur n° 4 de la centrale nucléaire de Tchernobyl a fondu.
+
+La ville de Tchernobyl a été évacuée peu après la catastrophe. La base d\'opérations pour l\'administration et la surveillance de la zone d\'exclusion de Tchernobyl a été déplacée de Pripyat à Tchernobyl. Tchernobyl contient actuellement des bureaux de l\'Agence nationale de l\'Ukraine pour la gestion de la Zone d\'exclusion et l\'hébergement pour les visiteurs. 25 % de la ville de Tchernobyl est utilisée. Dans l\'ensemble, il y a 2000 employés ici. Il y a un hôpital pour leur examen médical, qu\'ils passent 1 ou 2 fois par an. Un bus vient à Tchernobyl trois fois par jour. Ce n\'est donc pas difficile d\'arriver ici. Il y a aussi une station d\'essence pour les véhicules du gouvernement et une caserne de pompiers. Des blocs ont été reconfigurés comme logements pour les employés de l\'Agence nationale.
+
+En raison des règlements mis en œuvre pour limiter l\'exposition, les travailleurs de la Zone d\'exclusion de Tchernobyl passent un nombre limité de jours par semaine ou de semaines par mois à Tchernobyl.  De nombreux types d\'animaux y vivent actuellement et la ville a été envahie.
+
+Tchernobyl n\'est pas un endroit heureux, alors que l\'alcool s\'y trouve en abondance, il y a peu de rires, quelques femmes et pas d\'enfants.
+</string>
+    <string name="trumpeting_angel_of_chornobyl_description">Et le troisième ange sonna de la trompette, et il tomba du ciel une grande étoile ardente comme un flambeau, et elle tomba sur le tiers des fleuves et sur les sources des eaux ; Et le nom de cette étoile est Absinthe : et le tiers des eaux fut changé en absinthe ; et beaucoup d\'hommes moururent par les eaux, parce qu\'elles étaient devenues amères. (Apocalypse 8 : 10-11)
+
+Tchernobyl est le mot ukrainien pour "absinthe" et donc certains croient que la Bible a effectivement prédit la catastrophe de la centrale et la contamination subséquente.
+
+En face de vous se trouve une petite plate-forme surélevée en deux couches. C\'est une carte de la zone d\'exclusion. De petites taches là-dessus représentent les colonies qui ont dû être évacuées. Un peu plus loin, vous voyez les signes en forme de croix, ce sont les noms des colonies.
+</string>
+    <string name="monuments_to_liquidator_description">En face de la caserne des pompiers se trouve un mémorial aux liquidateurs qui se sont précipités vers le réacteur numéro quatre tout de suite après l\'explosion. Les pompiers qui ont réagi initialement à la catastrophe ne connaissaient pas l\'ampleur de l\'incident et alors qu\'ils travaillaient à éteindre les feux, leurs corps absorbaient de fortes doses de radiations et beaucoup d\'entre eux sont décédés plus tard de maladies aiguës provoquées par les radiations. Dans l\'ensemble, on estime que 600.000 à 1 million de travailleurs, y compris des scientifiques, des mineurs et des conscrits militaires soviétiques, ont participé aux efforts de nettoyage de Tchernobyl.
+
+Sur la plaque du monument on a inscrit "À ceux qui ont sauvé le monde."
+</string>
+    <string name="robots_description">Au cours de la catastrophe de Tchernobyl en 1986, les autorités soviétiques ont essayé d\'épargner aux travailleurs humains les conditions difficiles en faisant des expériences avec un certain nombre de dispositifs bizarres et étrangement innovants commandés à distance. Ces machines robotiques sont maintenant exposées dans un musée en plein air à proximité du site.
+
+Il suffit de regarder ces vieilles choses maladroites pour comprendre immédiatement dire qu\'ils n\'ont pas été à la hauteur de la tâche. Le retrait des débris contaminés a requis plus de dextérité que ces dispositifs ne pouvaient offrir, ce qui a obligé les Soviétiques à envoyer des travailleurs (c\'est-à-dire des soldats) pour faire le travail. Pendant le nettoyage, chaque personne pouvait se permettre de passer un maximum de 40 secondes à l\'intérieur ou à proximité de l\'installation. Beaucoup d\'entre eux sont morts à la suite de l\'exposition ou ont contracté un cancer plus tard.
+
+Quoi qu\'il en soit, ces robots ont été utiles également. Ils ont été utilisés dans les endroits où les radiations arrivaient à 1000 Sieverts.
+</string>
+    <string name="elijah_church_description">Au cours des vingt-cinq années écoulées depuis l\'accident de la centrale nucléaire de Tchernobyl, les niveaux de radiation autour de l\'église Saint-Élie, la seule église opérant dans la zone d\'exclusion, étaient bien au-dessous des niveaux de la zone, affirment les liquidateurs de la catastrophe de Tchernobyl.
+
+"Même pendant les jours les plus difficiles de 1986, la zone autour de l\'église Saint-Élie était pure (de radiation - IF), sans oublier que l\'église elle-même était propre," a déclaré Youry Andreyev, le président du Syndicat ukrainien de Tchernobyl, dans un visioconférence Kiev-Moscou mercredi.
+
+Maintenant, le territoire adjacent à l\'église a un niveau de 6 mR par heure contre 18 à Kiev. Plus particulièrement, selon lui, quelques secondes après l\'explosion dans la quatrième unité de la centrale de Tchernobyl, le nuage contenant des particules d\'uranium a commencé à se déplacer dans la direction de Pripyat, une ville située à environ 1.800 mètres de l\'usine. Il y avait un pin sur son chemin (il est présenté sur une icône très connue, le Sauveur de Tchernobyl.)
+
+« Le nuage s\'arrêta à proximité ce pin, se divisa en deux parties pour une raison inconnue et
+continua à se déplacer à gauche et à droite de la ville au lieu de recouvrir les zones résidentielles de celle-ci.
+
+Le niveau de radiation dans les zones de contamination était de quatre ou cinq roentgen par heure, alors que la ville montrait seulement un milli roentgen », a déclaré Andreyev.
+</string>
+    <string name="radar_duga_description"><![CDATA[La ville militaire secrète de Tchernobyl-2 est située au nord-ouest de la petite ville de Tchernobyl, mais il est impossible de la trouver sur une carte topographique. En explorant les cartes, vous pourriez trouver un symbole pour un pensionnat pour enfants, ou une ligne en pointillés de chemins forestiers à une place d\'hébergement de la ville, mais aucune référence aux bâtiments urbains et techniques. En URSS, ils réussissaient à cacher un secret, d\'autant plus si c\'était un secret militaire.
+
+Ce n\'est qu\'en raison de l\'effondrement de l\'Union soviétique et de l\'accident de la centrale nucléaire de Tchernobyl qu\'on a appris l\'existence d\'une petite ville (de garnison militaire) dans les bois de Polissia qui était engagée … dans « l’espionnage de l\'espace ».
+
+Dans les années soixante-dix du siècle dernier ont été créés des systèmes uniques de radar militaire pour traquer les lancements de missiles balistiques à partir des territoires (ou des bases militaires et des sous-marins) de l\'adversaire probable. Le système radar créé a été nommé "station radar Au-dessus-de-l ‘horizon" (Duga-1). L\'antenne avait 150 mètres de haut et 500 mètres de large, et ce chef-d\'œuvre du génie mécanique pèse environ 14.000 tonnes.  Sa taille énorme et les mâts d\'antenne de réception, Duga-1, ont exigé une importante ressource humaine - environ 1000 personnes ont travaillé sur l\'état d\'alerte militaire sur le site.
+
+Les systèmes Duga étaient extrêmement puissants, plus de 10 MW, dans certains cas, et diffusés dans les bandes de radio à ondes courtes. Ils sont apparus sans avertissement, retentissant comme un bruit aigu, répétitif, tapant à 10 Hz, ce qui lui a valu d\'être surnommé par les auditeurs des ondes courtes le Pic-bois russe. Les sauts de fréquence aléatoires ont perturbé la diffusion légitime, le radioamateur, les communications de l\'aviation commerciale, les transmissions de services publics, et ont donné lieu à des milliers de plaintes de la part de nombreux pays dans le monde entier. Le signal est devenu une telle nuisance que certains récepteurs tels que les radios et les télévisions amateurs ont effectivement commencé à inclure des « limiteurs de bruits de pic-bois » dans leur conception.
+
+Le signal non réclamé était la source de beaucoup de spéculations, donnant lieu à des théories telles que les expériences soviétiques de manipulation mentale et des conditions météorologiques. Cependant, de nombreux experts et radio amateurs se sont vite rendus compte qu\'il s\'agissait d\'un système de radar au-dessus de l\'horizon. Les renseignements militaires de l\'OTAN avaient déjà photographié le système et lui avait donné le nom de code OTAN de Chantier sidérurgique. Cette théorie a été confirmée publiquement après la chute de l\'Union soviétique. Lorsque l\'Union soviétique s\'est effondrée en 1991, l\'Ukraine et la Russie ont commencé à parler du contrôle sur les nombreuses installations militaires soviétiques actives en Ukraine.
+
+L\'installation du Pic-bois de la Russie occidentale n\'a pas été inclue dans les négociations, et ce qui était soupçonné de par le monde depuis un certain temps a été confirmé : la station radar avait été trop proche de la centrale de Tchernobyl.
+
+Lorsque le réacteur n°4 a fondu, le Pic-bois a été fortement contaminé par les retombées, et a dû être abandonné. Tchernobyl-2 a été évacué, et l\'équipement mobile de la station a été expédié vers l\'autre Pic-bois, en Sibérie.
+Le principal réseau d\'antennes était beaucoup trop massif pour être expédié, de sorte qu\'il est resté derrière et (doublement isolé par le secret d\'État et les radiations nucléaires) a même provoqué des rumeurs selon lesquelles il avait en quelque sorte causé l\'effondrement.
+]]></string>
+    <string name="kopachi_village_description">Avant de sortir de la voiture rappelez-vous que notre route est sûre, bien qu\'il y ait plusieurs points chauds que vous verrez. Ce n\'est pas dangereux pour vous d\'être à proximité de ceux-ci. Il suffit de ne pas mettre quoi que ce soit par terre ! Votre geiger indique le niveau de radiation par heure. Pendant la journée, nous obtenons 2,2mk Sieverts, que les gens obtiennent simplement en restant à la maison pendant 24 heures.
+
+Rien n\'a beaucoup changé derrière la fenêtre. Les arbres sont partout comme à une minute de route auparavant. Nous sommes dans le village appelé Kopachi. Après la catastrophe de Tchernobyl en 1986, le village a été fortement contaminé par les retombées et a été évacué par la suite. Après que le village de Kopachi a été évacué par les autorités, toutes les maisons ont été démolies et enterrées, comme expérience. Ce village a été le seul village à subir ce sort à la suite de la catastrophe de Tchernobyl.
+
+Un jardin d\'enfants et un autre bâtiment en briques sont les seules structures architecturales qui restent debout, tous les autres bâtiments ont été rasés. Le gouvernement n\'a pas reconnu le fait que ces bâtiments et maisons hautement contaminés suinteraient des isotopes radioactifs dans la nappe phréatique. L\'enterrement des bâtiments a entraîné les radio-toxines plus profondément dans l\'environnement. Le sol et de l\'eau qui entourent l\'ancien village demeurent contaminés par des matières radioactives, y compris le plutonium, le strontium-90 et le césium-137. D\'autres villages de la zone d\'exclusion ont affronté un sort similaire, polluant ainsi l\'aquifère
+</string>
+    <string name="first_part_of_reactor_description">La Centrale nucléaire V.I. Lénine, comme elle était connue à l\'époque soviétique, se composait de quatre réacteurs de type RBMK-1000, chacun capable de produire 1.000 mégawatts (MW) d\'énergie électrique. Ils travaillaient également sur les réacteurs # 5-6. Le réacteur n° 5 était à 85% prêt quand l\'accident s\'est produit.
+
+En entrant sur le territoire de la centrale nucléaire de Tchernobyl, vous pouvez voir deux tours de refroidissement sur la droite. Ils étaient prévus pour les deux derniers réacteurs.  Vous pouvez les voir à droite depuis le bus. Ce sont deux bâtiments rouges entourés de grues qui ont été laissés tels qu\'ils se trouvaient au moment de l\'accident. Le canal de refroidissement à côté d\'eux a été utilisé pour les 4 premiers réacteurs.
+
+Sur le côté gauche se trouve un nouvel entrepôt pour les déchets nucléaires et l\'usine de béton à côté de celui-ci est utilisée uniquement pour les besoins de la zone d\'exclusion. La structure énorme devant nous est le sarcophage qui va recouvrir le 4e réacteur pour les 100 prochaines années.
+Vous avez probablement déjà remarqué deux immenses bâtiments noirs sur la droite qui ressemblent davantage à des boîtes. De droite à gauche, on voit le réacteur n° 1 et deux à côté du tube de ventilation. Si vous regardez vers la gauche de celui-ci, vous pouvez voir deux bâtiments rouillés. Le plus gros est le réacteur n° 3 et le réacteur numéro 4 est juste un peu plus petit, se trouvant à côté du tube de ventilation. Il est difficile de l\'imaginer, mais après la catastrophe, la centrale nucléaire de Tchernobyl a produit plus d\'énergie qu\'auparavant. Parce que le 3e réacteur a continué à travailler jusqu\'en 2000.
+     Maintenant, nous faisons un bref arrêt pour des photos panoramiques avec tous les réacteurs. Veuillez ne pas aller derrière la clôture ou ailleurs, loin du tour bus.
+</string>
+    <string name="chernobyl_new_safe_confinement_description">Comme nous nous rapprochons des réacteurs, veuillez-vous rappeler que nous ne devons pas prendre des photos du personnel et du côté droit du sarcophage. En ce qui concerne les réacteurs, le sarcophage et le monument, vous êtes plus que bienvenus pour les prendre en photo. Veuillez également ne pas traverser la route derrière le monument que vous allez voir tout de suite.
+
+Le Nouveau confinement de sécurité de Tchernobyl est un projet de conception et de construction sans précédent dans l\'histoire du génie.  Jamais auparavant une telle structure énorme n\'a été construite sur un site fortement contaminé.
+La structure a été déplacée de 327 mètres depuis son point d\'assemblage à son emplacement définitif en novembre 2016.
+
+Le Nouveau confinement de sécurité permettra d\'éviter l\'évacuation des matières contaminées provenant de l\'abri actuel et protégera en même temps la structure des impacts extérieurs tels que les conditions météorologiques extrêmes.
+
+La structure a 108 mètres de haut et 162 mètres de long, avec une travée de 257 mètres et une durée de vie de 100 ans au minimum. Elle est assez grande pour abriter les cathédrales Saint-Paul de Londres ou Notre Dame de Paris.
+
+La structure en forme d\'arche pèse environ 36.000 tonnes. Son cadre est une énorme construction en réseau de membres tubulaires en acier, soutenue par deux poutres longitudinales en béton.
+Il est assez fort pour résister à une tornade et de son système de ventilation sophistiqué élimine le risque de corrosion, garantissant le fait qu\'il n\'est pas nécessaire de remplacer le revêtement et d\'exposer les travailleurs aux radiations pendant la durée de vie de la structure.
+
+Le consortium a travaillé avec des sous-traitants locaux et d\'autres encore à travers le monde. Par exemple, l\'arche est faite d\'éléments structurels conçus et construits en Italie. Les grues ont été fabriquées aux États-Unis.  L\'entrepreneur pour le revêtement de l\'arche était de Turquie, tandis que les opérations d\'élevage et de glissement ont été réalisées par une société néerlandaise.
+</string>
+    <string name="second_part_power_plant">Le 26 Avril 1986, au cours d\'un test destiné à vérifier combien d\'énergie était nécessaire pour maintenir le réacteur n° 4 en fonction en cas de panne, la centrale nucléaire de Tchernobyl a explosé, libérant des quantités extrêmement dangereuses de substances chimiques radioactives dans l\'air, qui, au fil du temps, ont contaminé des millions de miles carrés dans des dizaines de pays européens. Les décès de trente-et-un sont directement attribuables à l\'accident, tous parmi les employés du réacteur et les secouristes.
+
+Il est difficile de déterminer maintenant quel est le nombre exact de personnes qui sont mortes après avoir reçu une dose, car les gens meurent et tombent malades tous les jours, même sans radiation. En 2006, l\'Organisation mondiale de la santé a prédit 30.000 à 60.000 décès par cancer en raison des retombées de Tchernobyl. Les scientifiques parlent de différents problèmes de santé à la suite de cette tragédie. Le cancer est probablement ce qui vient à l\'esprit en premier. Mais les personnes qui n\'ont pas directement subi des radiations ont dû affronter un autre défi. Elles ont été stressées par l\'évacuation, la perte de leurs maisons, de leurs emplois, et tous les problèmes sociaux que cela a entraînés, et aussi par une peur des radiations, évidemment. L\'accident de Tchernobyl a directement pris 29 vie de liquidateurs.
+</string>
+    <string name="pripyat_town_descriptuion">Fondée en hiver 1970, la ville de Pripyat était un endroit paisible. Au moment de l\'accident, il y avait 50.000 personnes. 1000 bébés venaient au monde chaque année. L\'âge moyen des habitants était de 26-27years.16 mariages étaient organisés le jour de la tragédie. Le soir du 26 avril, la ville était encore en vie. Les gens marchaient dans les rues profitant de leur loisir. Si quelqu\'un a senti que quelque chose allait mal, ils ne pouvaient même pas imaginer à quel point la situation était mauvaise.
+
+Le lendemain soir, Pripyat a coulé en silence. Ce silence a retenu la ville dans ses bras pendant de nombreuses années. Et il ne la laisse toujours pas vivre à nouveau. Bien que l\'Union soviétique fût remplie de secrets, la catastrophe de Tchernobyl était beaucoup trop importante pour que l\'Union soviétique pût la cacher. Ils ont dû évacuer les gens.
+
+Pour éviter la panique, le gouvernement a envoyé des policiers à chaque appartement pour dire aux gens qu\'il y avait des bus qui les attendaient à 14 heures. Une radio informait aussi les gens brièvement sur ce qui se passait. Certaines personnes ont vraiment cru qu\'elles allaient rentrer dans quelques jours, comme on leur a dit. Tenant compte du fait qu\'ils ne devaient emporter que les effets les plus importants, comme les documents. Mais ils ne sont jamais rentrés. Une fois que 1300 autobus envoyés de Kiev ont évacué les gens, ils n\'ont pu revenir que six mois après la catastrophe. Juste pour prendre un peu plus de choses dans leurs maisons. Mais ce n\'était plus les mêmes maisons.
+</string>
+    <string name="pripyat_river_point_description">Le port fluvial était l\'endroit favori de tous les habitants de Pripyat. Ni les ventilateurs, ni la climatisation n\'étaient populaires à l\'époque. Une légère brise venait de la rivière Pripyat, et il y avait aussi une belle vue depuis le café qui s\'appelait également Pripyat. Ils disent que la glace y était bonne. Des machines Wendy avec une coupe pour tout le monde. Ces gens étaient de vrais camarades. Seule la "brebis galeuse" de la famille apporterait sa propre coupe de chez soi.
+
+Bien que cela prît deux fois plus d\'argent et de temps pour se rendre à Kiev par bateau que par bus, le port fluvial était surpeuplé tous les jours. Le bateau que vous pouvez voir sur le côté droit s\'approcher de la rivière est un quai flottant. Les navires tournaient ici et repartaient sur Kiev. Les vagues étaient trop hautes pour que les gens descendent directement sur la berge. Du port la rivière Pripyat, les gens pouvaient se rendre également à Gomel, en Biélorussie. C\'est encore ici qu\'il y a eu le premier yacht club en Union soviétique.
+
+La rivière Pripyat est reliée au canal de refroidissement pour les 4 premiers réacteurs, puis avec le Dnepr qui est relié à la mer Noire. Un autre fait intéressant concernant la rivière Pripyat est que 80% de sa contamination est acquise en dehors de la zone d\'exclusion. Il est connu que la Biélorussie a reçu plus de radiations que l\'Ukraine. "Vous récoltez ce que vous semez", disent-ils…
+
+Lorsque vous montez les escaliers du port fluvial prêtez attention au côté gauche. Vous y trouverez un point chaud. Après l\'explosion, les voitures qui ont participé au nettoyage ont dû être lavées. L\'eau coulait au pied des escaliers. Les radiations ne se soucient pas trop du temps qui passe.
+</string>
+    <string name="centre_description">Il est difficile d\'imaginer maintenant que les enfants jouaient tout autour. Pripyat était une belle ville avec plus de 30.000 buissons de roses. Vous ne trouverez aucune structure ancienne ici. Car Pripyat était entièrement nouvelle. Elle n\'a existé que 16 ans. Vous êtes au centre-ville maintenant. Allez voir l\'un des premiers supermarchés en Union soviétique. Il sera sur le côté gauche une fois que vous aurez monté les escaliers. Il est relié à un restaurant.  Si vous regardez les murs attentivement, vous pouvez voir des tableaux laissés ici par des artistes.
+
+L\'Hôtel Polésie est à main droite. Après l\'évacuation, ils ont essayé de faire vivre à nouveau la ville, de construire de nouvelles routes asphaltées, de nettoyer les bâtiments avec une aqua spéciale. Mais ils ont compris que ce n\'était pas la peine. Quoi qu\'il en soit, elle a été active jusqu\'en 1997. Les ouvriers de la centrale, les liquidateurs et quelques représentants du gouvernement sont restés ici. Ils ont mis des couvercles en plastique dans certains des bâtiments (comme la piscine, l\'hôtel).   Il a ainsi empêché l\'absorption des radiations.
+
+Si vous regardez en face vous voyez le centre culturel et de divertissement, qu\'on appelait à l\'époque le Palais de la culture. Les habitants de Pripyat étaient des personnes actives. Ils ont organisé beaucoup d\'activités ici. Théâtre, cinéma, salle de gym, piscine pour les enfants, tout cela dans un seul bâtiment. Il y avait également ici des radioamateurs et des clubs de littérature. Venez plus près de notre Palais de la culture et la première chose que vous voyez en ouvrant la porte, c\'est la chambre de la propagande. Veuillez ne pas trop avancer à l\'intérieur parce que le plancher n\'est pas très solide là-bas ! Vous pouvez marcher jusqu\'à la première chambre et prendre autant de photos que vous souhaitez.  Vous pouvez même y trouver un boîtier de vote. Ils n\'avaient qu\'un parti communiste…Mais le vote existait…
+</string>
+    <string name="ferris_wheel_description">Depuis près de 30 ans, le parc d\'attractions de Pripyat est resté vide et seul. Les manèges ont été à peine appréciés. La grande roue géante n\'a jamais été mise en marche. Le parc n\'a été ouvert que pour un jour, et presque immédiatement abandonné. Il l\'est resté depuis, et il est toujours hanté par les fantômes de son passé.
+
+Le Parc allait ouvrir le 1er mai 1986, mais la journée inaugurale n\'est plus jamais arrivée. La tragédie a eu lieu le 26 Avril. Le réacteur avait explosé, mais la ville n\'a pas été informée de la catastrophe tout de suite. Alors que les enfants jouaient dehors, des panaches de fumée dérivaient lentement dans la direction de Pripyat. Une flotte d\'autobus est arrivée le lendemain pour les évacuations forcées.
+
+Le parc a été ouvert, brièvement, le 27 Avril 1986, quelques jours avant la date prévue. Cependant, il n\'avait pas été ouvert pour des raisons de gain financier. Les propriétaires l\'ont ouvert pour quelques heures pendant que la ville était évacuée, dans une tentative d\'atténuer tant soit peu la tragédie et les terribles émotions de la journée. Maintenant, la grande roue rouille à côté d\'un petit manège tout simple, d\'une balançoire et d\'une auto tamponneuse - difficile d\'imaginer que cette petite collection de tours était autrefois considérée comme une attraction pour 50.000 personnes…
+
+Alors que les pièces en béton sont pour plupart sûres aujourd\'hui, les mousses environnantes peuvent atteindre 20 Sv / h (microsievert par heure) - les particules radioactives ont simplement été lessivées dans le sol. Marcher dans un tel endroit comme cela ne vous nuira pas sur le champ, mais vous ne voulez certainement pas construire une maison là-bas car le niveau de radiation y est environ 400 fois supérieur au niveau terrestre normal…
+</string>
+    <string name="stadium_avangard_description">Vous pouvez difficilement imaginer des équipes qui jouent au football là-bas. Mais ce que vous voyez est un terrain de football. Le stade a été construit l\'année de la catastrophe. Il aurait dû ouvrir le 1er mai 1986. Le football était incroyablement populaire à Pripyat - chaque réacteur avait son équipe propre. Le terrain a été utilisé à quelques reprises, mais l\'ouverture officielle n\'a jamais eu lieu. Aujourd\'hui, le domaine est envahi et la tribune s\'écroule. Sa turbine a été faite pour 5000 personnes.
+</string>
+    <string name="swimming_pool_description">Maintenant, nous nous dirigeons vers la piscine. Vous n\'y trouverez point d\'eau aujourd\'hui.
+Elle a été construite dans les années 1970 et a été utilisée jusqu\'en 1998 (12 ans après la catastrophe de Tchernobyl) ; au cours de ces 12 années, la piscine a été principalement utilisée par les liquidateurs. La piscine est considérée comme l\'un des endroits les plus propres de Pripyat.
+</string>
+    <string name="jupiter_factory_description">Nous arrivons maintenant à un objetif très important dans la ville. L\'usine Jupiter.
+Comme beaucoup de gens ayant une formation universitaire vivaient à Pripyat, l\'Union soviétique a décidé de construire une usine en banlieue pour employer une partie de ces gense. Cette usine est devenue le deuxième employeur de la région après la centrale nucléaire de Tchernobyl. L\'usine a ouvert en 1980 et employait environ 3500 personnes.
+
+L\'usine "Jupiter" de Pripyat est une légende. Selon l\'histoire officielle, ils y fabriquaient des magnétoscopes à cassettes et d\'autres pièces mineures, mais la plupart de ses ateliers fabriquaient des produits très différents. Secrètement, dans les profondeurs de "Jupiter", ils développaient et assemblaient des ordinateurs militaires et des « boîtes noires », des produits qu\'on désignait mystérieusement par "Produit No :". Même aujourd\'hui, on ne sait pas encore avec certitude quels produits sortaient de la ligne d\'assemblage qui s\'y trouvait. Nous pouvons seulement dire que la plupart d\'entre eux ont été utilisés pour les sous-marins militaires, pour les combattants et même dans l\'industrie spatiale.
+
+Après la catastrophe de Tchernobyl en 1986, contrairement à Pripyat, l\'usine n\'a pas été abandonnée de façon permanente. Après un certain temps, une partie des employés sont retournés à Jupiter et l\'usine est devenue un laboratoire radiologique pour l\'analyse de diverses techniques de décontamination et pour l\'élaboration d\'instruments dosimétriques. L\'usine a fonctionné jusqu\'en 1996.
+</string>
+    <string name="police_station_description">Bien que Pripyat fût une ville majoritairement habitée par des gens instruits et privilégiés, il est certain qu\'aucune ville de cette taille ne pouvait exister sans un poste de police - cela peut paraître un cliché, mais la plupart des personnes arrêtées étaient accusées d\'infractions liées à l\'alcool : fabrication artisanale de liqueur (samogon, самогон), rarement de conduite sous l\'influence de l\'alcool ou d\'état d\'ébriété en public. Le taux de criminalité était proche de zéro à Pripyat.</string>
+    <string name="nearest_point">Le point le plus proche est :</string>
+    <string name="start">Début</string>
+    <string name="title_activity_settings">Paramètres</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+
+</resources>
