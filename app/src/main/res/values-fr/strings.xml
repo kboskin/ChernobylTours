@@ -323,4 +323,7 @@ Après la catastrophe de Tchernobyl en 1986, contrairement à Pripyat, l\'usine 
         
     <string name="map"> Carte </string>
 
+    <string name="greetings">Salutations</string>
+
+
 </resources>

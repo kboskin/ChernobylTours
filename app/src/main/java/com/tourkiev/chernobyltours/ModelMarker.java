@@ -12,14 +12,14 @@ import java.io.Serializable;
 
 public class ModelMarker implements Serializable {
     private double latitude, longitude;
-    private String title;
+    private int title;
     private int bitmapMarkerId;
-    private String description;
+    private int description;
     private double radius;
     private int audioId;
     private int bitmapId;
 
-    public void setTitle(String title) {
+    public void setTitle(int title) {
         this.title = title;
     }
 
@@ -28,7 +28,7 @@ public class ModelMarker implements Serializable {
         return bitmapId;
     }
 
-    public ModelMarker(double latitude, double longitude, String title, String description, int bitmapId, double radius, int bitmapMarkerId, int audioId) {
+    public ModelMarker(double latitude, double longitude, int title, int description, int bitmapId, double radius, int bitmapMarkerId, int audioId) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.title = title;
@@ -39,7 +39,7 @@ public class ModelMarker implements Serializable {
         this.audioId = audioId;
     }
 
-    public ModelMarker(double latitude, double longitude, String title, String description, int bitmapId, int bitmapMarkerId, int audioId) {
+    public ModelMarker(double latitude, double longitude, int title, int description, int bitmapId, int bitmapMarkerId, int audioId) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.title = title;
@@ -65,11 +65,11 @@ public class ModelMarker implements Serializable {
         this.longitude = longitude;
     }
 
-    public String getTitle() {
+    public int getTitle() {
         return title;
     }
 
-    public String getDescription() {
+    public int getDescription() {
         return description;
     }
 
@@ -86,7 +86,7 @@ public class ModelMarker implements Serializable {
         this.bitmapMarkerId = bitmapMarkerId;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(int description) {
         this.description = description;
     }
 

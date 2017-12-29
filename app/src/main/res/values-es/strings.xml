@@ -271,4 +271,6 @@ Si usted mira al frente verá el Centro Cultural de entretenimiento o el llamado
     <string name="book_a_tour"> Reservar una visita </string>
         
     <string name="map"> Mapa </string>
+
+    <string name="greetings">Saludos</string>
 </resources>

@@ -162,5 +162,6 @@
     <string name="language">Language</string>
     <string name="book_a_tour">Book a tour</string>
     <string name="map">Map</string>
+    <string name="greetings">Greetings</string>
 
 </resources>

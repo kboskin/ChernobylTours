@@ -323,6 +323,9 @@
         
     <string name="book_a_tour">預訂遊覽</string>
         
-    <string name="map"> Map </string>
+    <string name="map"> 地圖 </string>
+
+    <string name="greetings">問候</string>
+
 
 </resources>

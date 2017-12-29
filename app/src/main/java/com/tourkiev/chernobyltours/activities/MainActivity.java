@@ -3,6 +3,8 @@ package com.tourkiev.chernobyltours.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -13,6 +15,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,6 +48,8 @@ public class MainActivity extends AppCompatActivity
     BookATourFragment bookATourFragment;
     CircleImageView profileImageView;
     TextView profileTextName;
+    Handler handler;
+    DrawerLayout drawer;
 
 
     @Override
@@ -85,11 +90,11 @@ public class MainActivity extends AppCompatActivity
         Picasso.with(getApplicationContext())
                 .load(profileImageUrl)
                 .into(profileImageView);
-        profileTextName.setText("Greetings" + ", " + profileName + " " + "!");
+        profileTextName.setText(getString(R.string.greetings) + ", " + profileName + " " + "!");
 
         if (savedInstanceState == null) {
             MapFragment mapFragment = new MapFragment();
-            replaceWithFragment(mapFragment);
+            replaceWithFragment(mapFragment, handler);
         }
 
 
@@ -143,27 +148,52 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         // empty fragment, just for a while
+        drawer = findViewById(R.id.drawer_layout);
+
+        handler = new Handler(new Handler.Callback() {
+            @Override
+            public boolean handleMessage(Message message) {
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        drawer.closeDrawer(Gravity.LEFT, true);
+                    }
+                }, 100);
+                return true;
+            }
+        });
+
+
+        initializeDrawerItemList(id);
+        return true;
+    }
+
+    private void initializeDrawerItemList(int id) {
         switch (id) {
             case R.id.nav_book:
+                System.gc();
                 if (bookATourFragment == null) {
                     bookATourFragment = new BookATourFragment();
                     bookATourFragment.init(TOURKIEV_URL_BOOK_TOUR);
                 }
-                replaceWithFragment(bookATourFragment);
+                replaceWithFragment(bookATourFragment, handler);
                 break;
             case R.id.nav_map:
+                System.gc();
                 if (mapFragment == null) {
                     mapFragment = new MapFragment();
                 }
-                replaceWithFragment(mapFragment);
+                replaceWithFragment(mapFragment, handler);
                 break;
             case R.id.nav_about:
+                System.gc();
                 if (aboutUsFragment == null) {
                     aboutUsFragment = new AboutUsFragment();
                     // initializing of url
                     aboutUsFragment.init(TOURKIEV_URL_MAIN);
                 }
-                replaceWithFragment(aboutUsFragment);
+                replaceWithFragment(aboutUsFragment, handler);
                 break;
             case R.id.nav_log_out:
                 rewriteLogInValueAndBackToLogIn(editor);
@@ -175,14 +205,11 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void run() {
                         startActivity(new Intent(MainActivity.this, LocalizationActivity.class));
+                        finish();
                     }
                 }).start();
-                finish();
                 break;
         }
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 
     private void rewriteLogInValueAndBackToLogIn(SharedPreferences.Editor editor) {
@@ -200,7 +227,7 @@ public class MainActivity extends AppCompatActivity
         finish();
     }
 
-    private void replaceWithFragment(Fragment fragment) {
+    private void replaceWithFragment(Fragment fragment, Handler handler) {
         // frgmcont has strong reference because we always replace it exactly
         if (fragment.isAdded()) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -220,6 +247,8 @@ public class MainActivity extends AppCompatActivity
                     .commit();
         }
 
+        if (handler != null)
+            handler.sendEmptyMessage(1);
     }
 
     @Override

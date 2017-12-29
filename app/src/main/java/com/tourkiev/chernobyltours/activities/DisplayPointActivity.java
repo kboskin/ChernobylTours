@@ -109,7 +109,7 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
 
         // setting text to the textView
         documentView = findViewById(R.id.content_text); // Support plain text
-        documentView.setText(hashMap.get(uniqueTitle).getDescription()); // Set to `true` to enable justification
+        documentView.setText(getString(hashMap.get(uniqueTitle).getDescription())); // Set to `true` to enable justification
 
         // setting image into imageView
         imageContainer = findViewById(R.id.content_image);
@@ -136,9 +136,8 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View view) {
 
-        switch (view.getId())
-        {
-            case R.id.circle_image_view_button :
+        switch (view.getId()) {
+            case R.id.circle_image_view_button:
                 if (mediaPlayer != null) {
                     if (mediaPlayer.isPlaying()) {
                         mediaPlayer.pause();
@@ -155,21 +154,21 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
                     }
                 }
                 break;
-            case  R.id.circle_image_view_button_repeat :
-            if (mediaPlayer != null) {
-                // process player to position
-                mediaPlayer.seekTo(0);
-                // set text into textview
-                timeLeftTextView.setText(R.string.start);
-                // set image to button
-                circleImageViewButtonPlay.setImageResource(R.drawable.stop);
-                // set progress to progressbar
-                playProgress.setProgress(100);
-                // start player
-                mediaPlayer.start();
-                Log.d("DisplayPoint", "in if");
-            }
-            break;
+            case R.id.circle_image_view_button_repeat:
+                if (mediaPlayer != null) {
+                    // process player to position
+                    mediaPlayer.seekTo(0);
+                    // set text into textview
+                    timeLeftTextView.setText(R.string.start);
+                    // set image to button
+                    circleImageViewButtonPlay.setImageResource(R.drawable.stop);
+                    // set progress to progressbar
+                    playProgress.setProgress(100);
+                    // start player
+                    mediaPlayer.start();
+                    Log.d("DisplayPoint", "in if");
+                }
+                break;
         }
 
     }
