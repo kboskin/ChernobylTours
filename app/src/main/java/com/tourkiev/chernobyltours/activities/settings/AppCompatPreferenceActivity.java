@@ -1,4 +1,4 @@
-package com.tourkiev.chernobyltours.activities;
+package com.tourkiev.chernobyltours.activities.settings;
 
 import android.content.res.Configuration;
 import android.os.Bundle;

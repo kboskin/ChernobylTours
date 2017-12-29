@@ -1,4 +1,4 @@
-package com.tourkiev.chernobyltours.activities;
+package com.tourkiev.chernobyltours.activities.settings;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;

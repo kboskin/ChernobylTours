@@ -17,12 +17,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 import com.tourkiev.chernobyltours.R;
+import com.tourkiev.chernobyltours.activities.settings.SettingsActivity;
 import com.tourkiev.chernobyltours.fragments.AboutUsFragment;
 import com.tourkiev.chernobyltours.fragments.BookATourFragment;
 import com.tourkiev.chernobyltours.fragments.MapFragment;
@@ -169,8 +169,15 @@ public class MainActivity extends AppCompatActivity
                 rewriteLogInValueAndBackToLogIn(editor);
                 System.gc();
                 break;
-            case R.id.nav_language :
-                Toast.makeText(getApplicationContext(), "For now only one language. In development...", Toast.LENGTH_LONG).show();
+            case R.id.nav_language:
+                System.gc();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        startActivity(new Intent(MainActivity.this, LocalizationActivity.class));
+                    }
+                }).start();
+                finish();
                 break;
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

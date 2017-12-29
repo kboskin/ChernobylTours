@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tourkiev.chernobyltours.activities.LocalizationActivity">
+
+    <TextView
+        android:id="@+id/en_click_me_text"
+        android:layout_width="220dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/en_click_me"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/en_lang_image_view"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/sp_click_me_text"
+        android:layout_width="220dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/sp_click_me"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/es_lang_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/en_click_me_text" />
+
+
+    <TextView
+        android:id="@+id/fr_click_me_text"
+        android:layout_width="220dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/fr_click_me"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/fr_lang_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/sp_click_me_text" />
+
+
+    <TextView
+        android:id="@+id/ja_click_me_text"
+        android:layout_width="220dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/ja_click_me"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/ja_lang_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/fr_click_me_text" />
+
+
+    <TextView
+        android:id="@+id/zh_click_me_text"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/zh_click_me"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/zh_lang_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/ja_click_me_text" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/en_lang_image_view"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/britain_ico"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/es_lang_image_view"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/spain_ico"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/en_lang_image_view" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fr_lang_image_view"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/france_ico"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/es_lang_image_view" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ja_lang_image_view"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/japan_ico"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fr_lang_image_view" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/zh_lang_image_view"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/china_ico"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ja_lang_image_view" />
+
+
+</android.support.constraint.ConstraintLayout>

@@ -436,17 +436,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
     }
 
-    private void scanIfInRadius(Marker mMarker, CircleOptions mCircle, float distance[]) {
-        Location.distanceBetween(mMarker.getPosition().latitude,
-                mMarker.getPosition().longitude, mCircle.getCenter().latitude,
-                mCircle.getCenter().longitude, distance);
-
-        if (distance[0] > mCircle.getRadius()) {
-            //Do what you need
-
-        }
-    }
-
     private MarkerOptions getNearestMarker(ArrayList<MarkerOptions> gMarkers, Location currentLocation) {
 
 
@@ -498,10 +487,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                         getString(nearest_point).length() + 1 + markerOptions.getTitle().length(), // sum two length of.....
                         Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         nearestMarkerTextView.setText(boldMarkerTitle);
-        int firstLength = getString(R.string.nearest_point).length();
-        int secondLenght = markerOptions.getTitle().length();
-
-
     }
 
 

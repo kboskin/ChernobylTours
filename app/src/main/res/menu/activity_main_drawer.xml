@@ -7,23 +7,23 @@
         <item
             android:id="@+id/nav_map"
             android:icon="@drawable/ic_menu_map"
-            android:title="Map" />
+            android:title="@string/map" />
         <item
             android:id="@+id/nav_book"
             android:icon="@drawable/ic_menu_book"
-            android:title="Book a tour" />
+            android:title="@string/book_a_tour" />
         <item
             android:id="@+id/nav_language"
             android:icon="@drawable/ic_menu_language"
-            android:title="Language" />
+            android:title="@string/language" />
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_menu_about"
-            android:title="About" />
+            android:title="@string/about_us" />
         <item
             android:id="@+id/nav_log_out"
             android:icon="@drawable/ic_menu_log_out"
-            android:title="Log out" />
+            android:title="@string/log_out" />
     </group>
 
 </menu>

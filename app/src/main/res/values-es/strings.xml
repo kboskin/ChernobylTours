@@ -1,5 +1,11 @@
 <resources>
-    <string name="app_name">ChernobylTours</string>
+    <string name="app_name">Chernobyl Tours</string>
+
+    <string name="en_click_me">Click image to set English</string>
+    <string name="sp_click_me">Cliquez sur l\'image pour définir l'espagnol</string>
+    <string name="fr_click_me">Cliquez sur l\'image pour définir le français</string>
+    <string name="ja_click_me">日本語を設定する画像をクリック</string>
+    <string name="zh_click_me">“點擊我”>點擊圖片設置中文</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -256,5 +262,13 @@ Si usted mira al frente verá el Centro Cultural de entretenimiento o el llamado
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
-
+    <string name="log_out"> Cerrar sesión </string>
+        
+    <string name="about_us"> Sobre nosotros </string>
+        
+    <string name="language"> Idioma </string>
+        
+    <string name="book_a_tour"> Reservar una visita </string>
+        
+    <string name="map"> Mapa </string>
 </resources>
