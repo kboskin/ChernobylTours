@@ -16,9 +16,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.bluejamesbond.text.DocumentView;
 import com.tourkiev.chernobyltours.ModelMarker;
 import com.tourkiev.chernobyltours.R;
+import com.tourkiev.chernobyltours.helpers.PressableDocumentView;
 
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
@@ -37,7 +37,7 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
 
     ImageView imageContainer;
     Intent intent;
-    DocumentView documentView;
+    PressableDocumentView documentView;
     ProgressBar playProgress;
     TextView timeLeftTextView;
     CircleImageView circleImageViewButtonPlay;
@@ -124,6 +124,13 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
         circleImageViewButtonRepeat.setOnClickListener(this);
 
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mediaPlayer.pause();
+        circleImageViewButtonPlay.setImageResource(R.drawable.play);
     }
 
     @Override

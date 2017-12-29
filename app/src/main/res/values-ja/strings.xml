@@ -243,7 +243,7 @@
 １９８６年のチェルノブイリ事故後、プリピャチ市とは違って工場は廃墟化されませんでした。暫くしたのち、何人かの従業者はJupiterに戻り、工場は様々な汚染除去技術と開発途上の処方学的な器具をテストするための放射線学研究所となりました。工場は１９９６年まで稼働しました。
 </string>
     <string name="police_station_description">プリピャチ市には比較的教育を受け特権階級の人たちで溢れかえっていましたが、それでも警察署は必要でした。まるで決まり文句みたいですが、逮捕された多くの人たちはアルコール関係（サマゴン、самого́нなどの密造酒、酔っ払い運転、公共で酔っ払うなど）で告発されました。プリピャチ市における犯罪率はほぼなかったも同然でした。</string>
-    <string name="nearest_point">最寄りのポイントは</string>
+    <string name="nearest_point">最寄りのポイントは :</string>
     <string name="start">開始</string>
     <string name="title_activity_settings">設定</string>
 
