@@ -123,13 +123,15 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 30.3228879,
                 (R.string.dymer),
                 (R.string.dymer_description),
-                (R.drawable.data4), 200,
+                (R.drawable.data4),
+                400,
                 (R.drawable.pin_5),
                 R.raw.dymer));// Dymer
         modelMarkerArrayList.add(new ModelMarker(50.80640933, 30.15102267,
                 (R.string.katyuzhanka),
                 (R.string.katyachanka_description),
                 (R.drawable.data5),
+                400,
                 (R.drawable.pin_6),
                 R.raw.kat));// Katyuzhanka
         modelMarkerArrayList.add(new ModelMarker(50.91928863,
@@ -137,6 +139,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.ivankiv),
                 (R.string.ivankiv_description),
                 (R.drawable.data6),
+                400,
                 (R.drawable.pin_7),
                 R.raw.ivankiv));// Ivankiv
         modelMarkerArrayList.add(new ModelMarker(51.11254837,
@@ -144,12 +147,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.dityatki_check_point),
                 (R.string.dityatki_check_point_description),
                 (R.drawable.data7),
+                500,
                 (R.drawable.pin_8),
                 R.raw.dit));// Dityatki Check Point
         modelMarkerArrayList.add(new ModelMarker(51.12256969,
                 30.12187243, (R.string.thirty_k_zone),
                 (R.string.thirty_k_zone_description),
                 (R.drawable.data8),
+                500,
                 (R.drawable.pin_9),
                 R.raw.thirty_k_zone));// 30k zone
         modelMarkerArrayList.add(new ModelMarker(51.253804,
@@ -157,6 +162,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.zalesye_village),
                 (R.string.zalesye_village_description),
                 (R.drawable.data9),
+                350,
                 (R.drawable.pin_10),
                 R.raw.zal));// Zalesye Village
         // ten point check point
@@ -165,6 +171,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.chornobyl),
                 (R.string.chornobyl_description),
                 (R.drawable.data10),
+                500,
                 (R.drawable.pin_11),
                 R.raw.chornobyl));// Chornobyl
         modelMarkerArrayList.add(new ModelMarker(51.27234674,
@@ -172,6 +179,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.trumpeting_angel_of_chornobyl),
                 (R.string.trumpeting_angel_of_chornobyl_description),
                 (R.drawable.data11),
+                300,
                 (R.drawable.pin_12),
                 R.raw.trumpeting));// Trumpeting Angel of Chernobyl
         modelMarkerArrayList.add(new ModelMarker(51.28024628,
@@ -179,6 +187,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.monuments_to_liquidator),
                 (R.string.monuments_to_liquidator_description),
                 (R.drawable.data12),
+                300,
                 (R.drawable.pin_13),
                 R.raw.monument));// Monument to the liquidators
         modelMarkerArrayList.add(new ModelMarker(51.28688467,
@@ -186,6 +195,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.robots),
                 (R.string.robots_description),
                 (R.drawable.data13),
+                250,
                 (R.drawable.pin_14),
                 R.raw.robots));// Robots
         modelMarkerArrayList.add(new ModelMarker(51.27269577,
@@ -193,6 +203,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.elijah_church),
                 (R.string.elijah_church_description),
                 (R.drawable.data14),
+                250,
                 (R.drawable.pin_15),
                 R.raw.st_elijah));// Elijah church
         modelMarkerArrayList.add(new ModelMarker(51.304720,
@@ -200,6 +211,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.radar_duga),
                 (R.string.radar_duga_description),
                 (R.drawable.data15),
+                500,
                 (R.drawable.pin_16),
                 R.raw.radar_duga));// Radar duga
         modelMarkerArrayList.add(new ModelMarker(51.35342519,
@@ -207,6 +219,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.kopachi_village),
                 (R.string.kopachi_village_description),
                 (R.drawable.data16),
+                600,
                 (R.drawable.pin_17),
                 R.raw.kopachi));// Kopachi Village
         modelMarkerArrayList.add(new ModelMarker(51.37854448,
@@ -214,6 +227,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.first_part_of_reactor),
                 (R.string.first_part_of_reactor_description),
                 (R.drawable.data17),
+                300,
                 (R.drawable.pin_18),
                 R.raw.first_part_nuclear));// 1st Part nuclear Power Plant
         modelMarkerArrayList.add(new ModelMarker(51.39031566,
@@ -221,6 +235,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.chernobyl_new_safe_confinement),
                 (R.string.chernobyl_new_safe_confinement_description),
                 (R.drawable.data18),
+                300,
                 (R.drawable.pin_19),
                 R.raw.chernobyl_new_safe));// 19 Chernobyl New Safe Confinement
         modelMarkerArrayList.add(new ModelMarker(51.39129981,
@@ -228,6 +243,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.second_part_power_part),
                 (R.string.second_part_power_plant),
                 (R.drawable.data19),
+                250,
                 (R.drawable.pin_20),
                 R.raw.second_part_power_plant));// 19 Chernobyl New Safe Confinement
         // twenty point check point
@@ -236,6 +252,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.pripyat_town),
                 (R.string.pripyat_town_descriptuion),
                 (R.drawable.data20),
+                400,
                 (R.drawable.pin_21),
                 R.raw.pripyat_town));//Pripyat town
         modelMarkerArrayList.add(new ModelMarker(51.40798684,
@@ -243,6 +260,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.pripyat_river_point),
                 (R.string.pripyat_river_point_description),
                 (R.drawable.data21),
+                300,
                 (R.drawable.pin_22),
                 R.raw.pripyat_river));//Pripyat river point
         modelMarkerArrayList.add(new ModelMarker(51.40666174,
@@ -250,6 +268,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.centre),
                 (R.string.centre_description),
                 (R.drawable.data22),
+                100,
                 (R.drawable.pin_23),
                 R.raw.centre));//Center
         modelMarkerArrayList.add(new ModelMarker(51.40762545,
@@ -257,6 +276,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.ferris_wheel),
                 (R.string.ferris_wheel_description),
                 (R.drawable.data23),
+                100,
                 (R.drawable.pin_24),
                 R.raw.ferris_wheel));//Ferris wheel
         modelMarkerArrayList.add(new ModelMarker(51.41031571,
@@ -264,6 +284,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.stadium_avangard),
                 (R.string.stadium_avangard_description),
                 (R.drawable.data24),
+                200,
                 (R.drawable.pin_25),
                 R.raw.stadium_avangard));//Stadium avangard
         modelMarkerArrayList.add(new ModelMarker(51.40670189,
@@ -271,6 +292,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.swimming_pool),
                 (R.string.swimming_pool_description),
                 (R.drawable.data25),
+                200,
                 (R.drawable.pin_26),
                 R.raw.swimming_pool));//Swimming pool
         modelMarkerArrayList.add(new ModelMarker(51.40233816,
@@ -278,6 +300,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.jupiter_factory),
                 (R.string.jupiter_factory_description),
                 (R.drawable.data26),
+                200,
                 (R.drawable.pin_27),
                 R.raw.jupiter_factory));//Jupiter factory
         modelMarkerArrayList.add(new ModelMarker(51.40227123,
@@ -285,6 +308,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 (R.string.police_station),
                 (R.string.police_station_description),
                 (R.drawable.data27),
+                200,
                 (R.drawable.pin_28),
                 R.raw.police));//Police station
 
@@ -342,6 +366,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
             hashMap.put(marker.getTitle(), modelMarker); // link each marker with it's model
             googleMap.addMarker(marker);
 
+            modelMarkerArrayList = null;
+            System.gc();
         }
 
         modelMarkerArrayList = null;
@@ -353,28 +379,32 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         //set map type
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-        // default value
-        currentLocation = gpsTracker.getLocation();
 
-        // Get latitude of the current location
-        double latitude = currentLocation.getLatitude();
+        if (gpsTracker != null) {
+            // default value
+            currentLocation = gpsTracker.getLocation();
 
-        // Get longitude of the current location
-        double longitude = currentLocation.getLongitude();
+            // Get latitude of the current location
+            double latitude = currentLocation.getLatitude();
 
-        // Create a LatLng object for the current location
-        LatLng latLng = new LatLng(latitude, longitude);
+            // Get longitude of the current location
+            double longitude = currentLocation.getLongitude();
 
-        // set text into bottom text view for the first time
-        Location temp = new Location(LocationManager.GPS_PROVIDER);
-        temp.setLatitude(latitude);
-        temp.setLongitude(longitude);
+            // Create a LatLng object for the current location
+            LatLng latLng = new LatLng(latitude, longitude);
 
-        markerOptions = getNearestMarker(googleMapArrayList, temp);
-        setTextBottomTextView(markerOptions);
+            // set text into bottom text view for the first time
+            Location temp = new Location(LocationManager.GPS_PROVIDER);
+            temp.setLatitude(latitude);
+            temp.setLongitude(longitude);
 
-        // Show the current location in Google Map
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+            markerOptions = getNearestMarker(googleMapArrayList, temp);
+            setTextBottomTextView(markerOptions);
+
+            // Show the current location in Google Map
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        }
+
 
         // Zoom in the Google Map
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(17));

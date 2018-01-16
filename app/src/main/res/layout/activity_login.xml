@@ -43,6 +43,7 @@
         android:textAlignment="center"
         android:textColorLink="@color/colorBlack"
         android:textSize="18sp"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        android:layout_marginBottom="10dp"/>
 
 </RelativeLayout>

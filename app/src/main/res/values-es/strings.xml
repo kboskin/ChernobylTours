@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Chernobyl Tours</string>
 
+    <string name="choose_language">Elige tu idioma</string>
+
     <string name="en_click_me">Click image to set English</string>
     <string name="sp_click_me">Cliquez sur l\'image pour définir l'espagnol</string>
     <string name="fr_click_me">Cliquez sur l\'image pour définir le français</string>
@@ -13,10 +15,6 @@
     <string name="action_settings">Configuraciones</string>
 
     <string name="facebook_app_id">299931483831093</string>
-    <string name="fb_login_protocol_scheme">fb299931483831093</string>
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
-        AIzaSyAv6U6eH2WbidLdc81XZNKYc1LOKR1JqN0
-    </string>
 
 
     <string name="first_time_here"><a href="https://www.tourkiev.com/">Primera vez aquí?</a></string>
