@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Build;
@@ -75,6 +76,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // fixed orientation in portrait orientation
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         // request permissions for users
         selfCheckPermissions();
@@ -350,7 +354,7 @@ public class LoginActivity extends AppCompatActivity {
             } else {
                 window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
                 window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-                final android.widget.RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)creditsTextView.getLayoutParams();
+                final android.widget.RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) creditsTextView.getLayoutParams();
                 layoutParams.setMargins(0, 0, 0, getPixelsFromDPs(LoginActivity.this));
                 creditsTextView.setLayoutParams(layoutParams);
             }
@@ -371,7 +375,7 @@ public class LoginActivity extends AppCompatActivity {
         return id > 0 && resources.getBoolean(id);
     }
 
-    private int getPixelsFromDPs(Context context){
+    private int getPixelsFromDPs(Context context) {
         return (int) (TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, 50, context.getResources().getDisplayMetrics()));
     }

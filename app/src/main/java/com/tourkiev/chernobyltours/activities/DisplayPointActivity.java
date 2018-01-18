@@ -2,6 +2,7 @@ package com.tourkiev.chernobyltours.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -76,9 +77,12 @@ public class DisplayPointActivity extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // fixed orientation in portrait orientation
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         setContentView(R.layout.activity_display_point);
-
-
+        
         // set back button
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true); // In `OnCreate();`
 

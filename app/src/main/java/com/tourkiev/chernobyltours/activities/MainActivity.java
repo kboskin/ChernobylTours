@@ -2,6 +2,7 @@ package com.tourkiev.chernobyltours.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -55,6 +56,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // fixed orientation in portrait orientation
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -95,6 +99,7 @@ public class MainActivity extends AppCompatActivity
         if (savedInstanceState == null) {
             MapFragment mapFragment = new MapFragment();
             replaceWithFragment(mapFragment, handler);
+            navigationView.setCheckedItem(R.id.nav_map);
         }
 
 
@@ -172,7 +177,6 @@ public class MainActivity extends AppCompatActivity
     private void initializeDrawerItemList(int id) {
         switch (id) {
             case R.id.nav_book:
-                System.gc();
                 if (bookATourFragment == null) {
                     bookATourFragment = new BookATourFragment();
                     bookATourFragment.init(TOURKIEV_URL_BOOK_TOUR);
@@ -180,14 +184,12 @@ public class MainActivity extends AppCompatActivity
                 replaceWithFragment(bookATourFragment, handler);
                 break;
             case R.id.nav_map:
-                System.gc();
                 if (mapFragment == null) {
                     mapFragment = new MapFragment();
                 }
                 replaceWithFragment(mapFragment, handler);
                 break;
             case R.id.nav_about:
-                System.gc();
                 if (aboutUsFragment == null) {
                     aboutUsFragment = new AboutUsFragment();
                     // initializing of url
@@ -200,12 +202,10 @@ public class MainActivity extends AppCompatActivity
                 System.gc();
                 break;
             case R.id.nav_language:
-                System.gc();
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         startActivity(new Intent(MainActivity.this, LocalizationActivity.class));
-                        finish();
                     }
                 }).start();
                 break;
@@ -227,7 +227,7 @@ public class MainActivity extends AppCompatActivity
         finish();
     }
 
-    private void replaceWithFragment(Fragment fragment, Handler handler) {
+    private void replaceWithFragment(final Fragment fragment, Handler handler) {
         // frgmcont has strong reference because we always replace it exactly
         if (fragment.isAdded()) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -239,12 +239,19 @@ public class MainActivity extends AppCompatActivity
             }
             ft.show(fragment).commit();
         } else {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .add(R.id.frgm_cont, fragment)
-                    .addToBackStack(String.valueOf(fragment.getId()))
-                    .show(fragment)
-                    .commit();
+            // for faster UI and better optimization
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .add(R.id.frgm_cont, fragment)
+                            .addToBackStack(String.valueOf(fragment.getId()))
+                            .show(fragment)
+                            .commit();
+                }
+            }).start();
+
         }
 
         if (handler != null)

@@ -13,7 +13,7 @@
         android:layout_width="245dp"
         android:layout_height="45dp"
         android:layout_above="@+id/txt_credits"
-        android:layout_alignStart="@+id/google_login_button"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="71dp"
         android:background="@drawable/facebook_skin"
         android:textColor="@color/colorWhite"

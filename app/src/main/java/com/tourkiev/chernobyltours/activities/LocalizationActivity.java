@@ -1,9 +1,11 @@
 package com.tourkiev.chernobyltours.activities;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.tourkiev.chernobyltours.R;
@@ -15,7 +17,14 @@ public class LocalizationActivity extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // fixed orientation in portrait orientation
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         setContentView(R.layout.activity_localization);
+
+        // set back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         findViewById(R.id.en_lang_image_view).setOnClickListener(this);
         findViewById(R.id.es_lang_image_view).setOnClickListener(this);
@@ -58,9 +67,21 @@ public class LocalizationActivity extends AppCompatActivity implements View.OnCl
         getBaseContext().getResources().updateConfiguration(config,
                 getBaseContext().getResources().getDisplayMetrics());
     }
-    private void startMainActivity()
-    {
+
+    private void startMainActivity() {
         startActivity(new Intent(LocalizationActivity.this, MainActivity.class));
         finish();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; go home
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
